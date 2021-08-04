@@ -29,7 +29,7 @@
 
 ## 設計書
 [ER図](https://drive.google.com/file/d/180kbEA1mR9VH0JbmQMRHkmFdxvN7qcf6/view?usp=sharing)
-
+[テーブル定義書](https://docs.google.com/spreadsheets/d/15bYpdVpU44oBtOx7yFbTLQhOEd7ZxLZvHBDHf3avXtk/edit#gid=2122389497)
 
 ## チャレンジ要素一覧
 [外部リンク(googleスプレッドシート)を参照](https://docs.google.com/spreadsheets/d/13UOlOFPoLD_5rheGYkdo2hNbFWJDoTxuDUk_7Y-rf1g/edit#gid=0)
