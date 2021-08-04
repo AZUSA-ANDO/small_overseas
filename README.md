@@ -28,7 +28,7 @@
 - お気に入りのスポットを誰かに紹介したい時
 
 ## 設計書
-<...>
+ER図（https://app.diagrams.net/#G180kbEA1mR9VH0JbmQMRHkmFdxvN7qcf6）
 
 ## チャレンジ要素一覧
 [外部リンク(googleスプレッドシート)を参照](https://docs.google.com/spreadsheets/d/13UOlOFPoLD_5rheGYkdo2hNbFWJDoTxuDUk_7Y-rf1g/edit#gid=0)
