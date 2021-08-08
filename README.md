@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # small_overseas
 
 ## サイト概要
@@ -56,7 +30,7 @@ Things you may want to cover:
 ## 設計書
 - [ワイヤーフレーム](https://docs.google.com/presentation/d/1qtmZF0kdqhPmAEnpgKZK4hAtLFBjns_logktVUUWO5Y/edit#slide=id.ge749490879_0_104)<br>
 - [ER図](https://drive.google.com/file/d/180kbEA1mR9VH0JbmQMRHkmFdxvN7qcf6/view?usp=sharing)　<br>
-- [テーブル定義書](https://docs.google.com/spreadsheets/d/15bYpdVpU44oBtOx7yFbTLQhOEd7ZxLZvHBDHf3avXtk/edit#gid=2122389497)　
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/15bYpdVpU44oBtOx7yFbTLQhOEd7ZxLZvHBDHf3avXtk/edit#gid=2122389497)
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1uqgzk5OGe5oMNmsTZbHrRsGPfY9GoOqb/edit#gid=1927280278)
 
 ## チャレンジ要素一覧
@@ -90,4 +64,3 @@ Things you may want to cover:
 ###### 【画像素材】後日記入
 ###### 【イラスト】後日記入
 ###### 【アイコン・ロゴ】後日記入
->>>>>>> 041d8fad235a17238b3c156c8f6bb91a22c8428f
