@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spot_image_id: MyString
+  name: MyString
+  address: MyString
+  introduction: MyText
+  japan_area: 1
+
+two:
+  spot_image_id: MyString
+  name: MyString
+  address: MyString
+  introduction: MyText
+  japan_area: 1

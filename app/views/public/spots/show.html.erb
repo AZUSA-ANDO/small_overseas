@@ -1,0 +1,66 @@
+
+<div class ="container">
+
+  <div class="row mt-5">
+
+   <div class="col-md-12">
+     <div class="row">
+
+      <%= attachment_image_tag @spot, :spot_image, format: 'jpeg', width: '50%', height: '50%' %>
+
+        <div class='col-md-5 pt-3 ml-3'>
+
+        <table class='table' >
+          <tr>
+        	  <td>Area</td>
+        	  <td><%= @spot.japan_area %></td>
+          </tr>
+          <tr>
+        	  <td>Atmosphere</td>
+        	  <td>海外エリアの雰囲気(後で）</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td><%= @spot.address %></td>
+          </tr>
+          <tr>
+            <td>Spot name</td>
+            <td><%= @spot.name %></td>
+          </tr>
+            <tr>
+            <td>Spot introduction</td>
+            <td><%= @spot.introduction %></td>
+          </tr>
+          　<tr>
+          　 <td class="noborder favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
+          　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+          　</tr>
+        </table>
+
+        <%#= render 'public/spots/comment', spot: @spot,comment: @comment%>
+
+
+         <div class="text-center mt-3">
+         <% if @spot.user_id == current_user.id %>
+           <%= link_to "Edit", edit_spot_path, class:"btn btn-secondary w-25" %>
+           <%= link_to "Delete", spot_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:'btn btn-outline-secondary ml-4 w-25' %>
+         <% end %>
+         </div>
+
+         <h5 class="mt-5">Comment</h5>
+
+          <div id="comment-<%= @spot.id %>">
+          <%= render 'public/comments/comment_index', spot: @spot %>
+           </div>
+
+          <div class="post-comment">
+              <%= render "public/comments/comment_form", spot: @spot, comment: @comment %>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+</div>
