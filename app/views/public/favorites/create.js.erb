@@ -1,0 +1,2 @@
+
+ $(".favorite-btn_<%= @spot.id %>").html("<%= escape_javascript(render partial: 'public/favorites/favorite-btn', locals: {spot: @spot}) %>");
