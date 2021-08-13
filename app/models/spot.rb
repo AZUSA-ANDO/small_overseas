@@ -2,7 +2,9 @@ class Spot < ApplicationRecord
 
   belongs_to :user
   # ひとまず空でもOK(optional: true)にしてる
-  belongs_to :overseas_areas, optional: true
+  # has_many :overseas_areas, optional: true
+  # has_many :overseas_areas
+  belongs_to :overseas_area, optional: true
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :spot_image

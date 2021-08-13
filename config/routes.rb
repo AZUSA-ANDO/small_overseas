@@ -5,6 +5,17 @@ Rails.application.routes.draw do
     passwords:     'admins/passwords',
     registrations: 'admins/registrations'
   }
+
+
+
+  namespace :admin do
+
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :overseas_areas, only: [:index, :edit, :update, :create, :destroy]
+
+  end
+
+
   devise_for :user, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
@@ -45,6 +56,16 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create,:show]
 
   end
+
+  # 管理者側のルーティング
+
+  # namespace :admin do
+
+  #   resources :users, only: [:index, :show, :edit, :update]
+  #   resources :overseas_areas, only: [:index, :edit, :update, :create]
+
+  # end
+
 
 
 

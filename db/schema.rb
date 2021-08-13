@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_131701) do
+ActiveRecord::Schema.define(version: 2021_08_12_080159) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2021_08_11_131701) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "overseas_areas", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -80,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_131701) do
     t.integer "japan_area", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["overseas_area_id"], name: "index_spots_on_overseas_area_id"
   end
 
   create_table "users", force: :cascade do |t|
