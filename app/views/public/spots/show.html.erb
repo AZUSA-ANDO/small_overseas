@@ -17,7 +17,7 @@
           </tr>
           <tr>
         	  <td>Atmosphere</td>
-        	  <td>海外エリアの雰囲気(後で）</td>
+        	  <td><%= @spot.overseas_area.name %></td>
           </tr>
           <tr>
             <td>Address</td>
@@ -34,7 +34,7 @@
           　<tr>
           　 <td class="noborder favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
           　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
-          　</tr>
+          　 </tr>
         </table>
 
         <%#= render 'public/spots/comment', spot: @spot,comment: @comment%>

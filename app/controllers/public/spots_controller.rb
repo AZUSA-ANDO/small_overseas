@@ -1,9 +1,11 @@
 class Public::SpotsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :set_overseas_areas, only: [:index, :show, :new, :edit, :create,:update, :destroy]
 
   def new
     @spot = Spot.new
+    @overseas_areas = OverseasArea.all
   end
 
   def create
@@ -19,12 +21,15 @@ class Public::SpotsController < ApplicationController
   def index
     # 新しい投稿が上に来るように
     @spots = Spot.all.order(created_at: :desc)
+    @overseas_areas = OverseasArea.all
   end
 
   def show
     @spot = Spot.find(params[:id])
     @comment = Comment.new
+    @overseas_areas = OverseasArea.all
   end
+
 
   def edit
 
@@ -40,7 +45,7 @@ class Public::SpotsController < ApplicationController
 
    def destroy
      @spot.destroy
-     redirect_to room_path
+     redirect_to user_path(@spot.user_id)
    end
 
 
@@ -53,8 +58,16 @@ class Public::SpotsController < ApplicationController
       :introduction,
       :address,
       :spot_image,
-      :japan_area)
+      :japan_area,
+      )
   end
+
+
+  def set_overseas_areas
+    @overseas_areas = OverseasArea.all
+  end
+
+
 
 
   def ensure_correct_user

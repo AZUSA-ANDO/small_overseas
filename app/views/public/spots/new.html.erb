@@ -11,13 +11,13 @@
           <%= f.select :japan_area, Spot.japan_areas.keys.to_a, {} %>
         </div>
       </div>
-      <!-- <div class="col-md-6 col-lg-5 offset-lg-1">-->
-      <!--  <div class="form-group mt-4 ml-md-2">-->
-      <!--    <%#= f.label "Atmosphere", class:"form-label lead" %>-->
-      <!--    <%#= f.label "(雰囲気)", class:"form-label small" %></br>-->
-          <%#= f.select :japan_area, Spot.japan_areas.keys.to_a, {} %>
-      <!--  </div>-->
-      <!--</div>-->
+       <div class="col-md-6 col-lg-5 offset-lg-1">
+        <div class="form-group mt-4 ml-md-2">
+          <%= f.label "Atmosphere", class:"form-label lead" %>
+          <%= f.label "(雰囲気)", class:"form-label small" %></br>
+          <%= f.collection_select :overseas_area_id, @overseas_areas, :id, :name %>
+        </div>
+      </div>
     </div>
 
     <div class="row">

@@ -20,8 +20,8 @@
           <% end %>
         </td>
         <td><%= link_to user.name, user_path(user.id) %></td>
-        <td>フォロー数: <%= user.follower.count %></td>
-        <td>フォロワー数: <%= user.followed.count %></td>
+        <td>フォロー数: <%= user.followed.count %></td>
+        <td>フォロワー数: <%= user.follower.count %></td>
         <!--<td class="comments-count">コメント数: <%#= book.book_comments.count %></td>-->
         <!--<td class="view-count">閲覧数: <%#= book.view_counts.count %></td>-->
       </tr>
