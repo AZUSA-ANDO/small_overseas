@@ -1,0 +1,45 @@
+ <ul>
+       <% spots.each do |spot| %>
+       <li>
+         <div class="photo">
+           <%= link_to spot_path(spot.id) do %>
+           <%= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>
+           <div class="favorite-btn_<%= spot.id %>">
+           <%= render "public/favorites/favorite-btn", spot: spot %>
+           </div>
+         </div>
+       <% end %>
+
+        <table class="table txt">
+          <tr>
+            <td>User name<small class="text-muted">：ユーザー名</small></td>
+　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
+          </tr>
+　　　　　<tr>
+　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
+　　　　　　<td><%= spot.japan_area %></td>
+          </tr>
+          <tr>
+            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td><%= spot.overseas_area.name %></td>
+          </tr>
+          <tr>
+            <td>Address<small class="text-muted">：住所</small></td>
+            <td><%= spot.address %></td>
+          </tr>
+           <tr>
+            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td><%= spot.name %></td>
+          </tr>
+          <tr>
+            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td><%= spot.introduction %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
+          </tr>
+        </table>
+       </li>
+       <% end %>
+     </ul>

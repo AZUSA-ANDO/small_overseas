@@ -1,59 +1,20 @@
 
-
 <div class="container">
+  <div class="row">
 
-<div class="row">
+  <div class="col-2">
 
-         <ul>
-           <% @spots.each do |spot| %>
-           <li>
-           <div class="photo">
-             <%= link_to spot_path(spot.id) do %>
-             <%= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>
-             <div class="favorite-btn_<%= spot.id %>">
-             <%= render "public/favorites/favorite-btn", spot: spot %>
-             </div>
-           </div>
-             <% end %>
 
-            <table class="table txt">
-              <tr>
-                <td>User name</td>
-　　　　　　　  <td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
-              </tr>
-　　　　　　　<tr>
-　　　　　　　  <td>Area</td>
-　　　　　　　  <td><%= spot.japan_area %></td>
-               </tr>
-               <tr>
-                  <td>Atmosphere</td>
-                  <td><%= spot.overseas_area.name %></td>
-               </tr>
-               <tr>
-                  <td>Address</td>
-                  <td><%= spot.address %></td>
-               </tr>
-               <tr>
-                  <td>Spot name</td>
-                  <td><%= spot.name %></td>
-               </tr>
-                <tr>
-                  <td>Spot introduction</td>
-                  <td><%= spot.introduction %></td>
-               </tr>
-          　    <tr>
-              　 <th class="noborder"></th>
-              　 <th class="noborder"></th>
-              　</tr>
-            </table>
 
-           </li>
-           <% end %>
 
-         </ul>
+    <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
+  </div>
 
-      </div>
+  <div class = "col-10 mt-5">
+    <%= render "public/spots/post_list", spots: @spots %>
+  </div>
 
+  </div>
 </div>
 
 

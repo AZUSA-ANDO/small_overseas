@@ -1,0 +1,17 @@
+<table class = "area-sidber table">
+
+　<h5>Atmosphere</h5>
+  <tr>
+    <td><%= link_to "All", spots_path %></td>
+  </tr>
+
+  <% overseas_areas.each do |overseas_area| %>
+  <tr>
+    <td>
+      <%= link_to overseas_area.name, search_path("value": overseas_area.id) %>
+    </td>
+  </tr>
+     <% end %>
+
+
+</table>
