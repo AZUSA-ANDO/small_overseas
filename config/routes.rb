@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-
+# 管理者側のルーティング
 
   namespace :admin do
 
@@ -55,18 +55,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show]
 
+    get "area_search", to: "search#search", as: "search"
+
+
   end
-
-  # 管理者側のルーティング
-
-  # namespace :admin do
-
-  #   resources :users, only: [:index, :show, :edit, :update]
-  #   resources :overseas_areas, only: [:index, :edit, :update, :create]
-
-  # end
-
-
-
 
 end
