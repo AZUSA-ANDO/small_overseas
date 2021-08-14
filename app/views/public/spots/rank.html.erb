@@ -1,0 +1,128 @@
+<div class="container">
+  <h4 class="text-center">Weekly ranking</h4>
+<!--last_likeを定義して0を代入-->
+<% last_like = 0 %>
+<!--jを定義して1を代入-->
+<% j = 1 %>
+
+<!--いいねの多い順に並べたものを配列でまわす-->
+<% @week_post_like_ranks.each.with_index(1) do |spot, i| %>
+<!--順位が1位のときlast_likeに値は入っていないため、１位のいいねのカウント数を代入-->
+<% if i == 1 %>
+  <% last_like = spot.favorites.count %>
+<% end %>
+
+<!--rank.likes.countとlast_likeを比べて条件分岐-->
+<!--値が一致しないとき-->
+<% if spot.favorites.count != last_like %>
+  <!--値が一致しないということは次の順位を表示したいので-->
+  <!--j　に i　を代入して表示-->
+  <% j = i %>
+  No.<%= j %>
+  <p><%= spot.favorites.count %>いいね</p>
+  <!--値が一致していなのでlast_likeの値を更新-->
+  <% last_like = spot.favorites.count %>
+<% else %>
+  <!--last_likeといいねのカウント数が同じとき-->
+  <!--値は同じですが今後も使うので、代入しておく-->
+  <% last_like = spot.favorites.count %>
+  <!--jには前の順位と同じ値が入っているので、更新せずそのまま表示-->
+  No.<%= j %>
+  <p><%= spot.favorites.count %>いいね</p>
+<% end %>
+<ul>
+<li>
+         <div class="photo">
+           <%= link_to spot_path(spot.id) do %>
+           <%= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>
+           <div class="favorite-btn_<%#= spot.id %>">
+           <%= render "public/favorites/favorite-btn", spot: spot %>
+           </div>
+         </div>
+       <% end %>
+
+        <table class="table txt">
+          <tr>
+            <td>User name<small class="text-muted">：ユーザー名</small></td>
+　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
+          </tr>
+　　　　　<tr>
+　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
+　　　　　　<td><%= spot.japan_area %></td>
+          </tr>
+          <tr>
+            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td><%= spot.overseas_area.name %></td>
+          </tr>
+          <tr>
+            <td>Address<small class="text-muted">：住所</small></td>
+            <td><%= spot.address %></td>
+          </tr>
+           <tr>
+            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td><%= spot.name %></td>
+          </tr>
+          <tr>
+            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td><%= spot.introduction %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
+          </tr>
+        </table>
+       </li>
+</ul>
+
+<% end %>
+
+</div>
+
+
+
+<!--<ul>-->
+<!--  <%# @week_post_like_ranks.each.with_index(1) do |spot, i| %>-->
+<!--  No.<%#= i %>-->
+<!--<li>-->
+<!--         <div class="photo">-->
+<!--           <%#= link_to spot_path(spot.id) do %>-->
+<!--           <%#= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>-->
+<!--           <div class="favorite-btn_<%#= spot.id %>">-->
+<!--           <%#= render "public/favorites/favorite-btn", spot: spot %>-->
+<!--           </div>-->
+<!--         </div>-->
+<!--       <%# end %>-->
+
+<!--        <table class="table txt">-->
+<!--          <tr>-->
+<!--            <td>User name<small class="text-muted">：ユーザー名</small></td>-->
+<!--　　　　　　<td><%#= link_to spot.user.name, user_path(spot.user.id) %></td>-->
+<!--          </tr>-->
+<!--　　　　　<tr>-->
+<!--　　　　　　<td>Area<small class="text-muted">：エリア</small></td>-->
+<!--　　　　　　<td><%#= spot.japan_area %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>-->
+<!--            <td><%#= spot.overseas_area.name %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Address<small class="text-muted">：住所</small></td>-->
+<!--            <td><%#= spot.address %></td>-->
+<!--          </tr>-->
+<!--           <tr>-->
+<!--            <td>Spot name<small class="text-muted">：スポット名</small></td>-->
+<!--            <td><%#= spot.name %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Spot introduction<small class="text-muted">：紹介文</small></td>-->
+<!--            <td><%#= spot.introduction %></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td></td>-->
+<!--            <td><small class="text-muted"><%#= spot.created_at.to_s(:datetime) %></small></td>-->
+<!--          </tr>-->
+<!--        </table>-->
+<!--       </li>-->
+<!--       <%# end %>-->
+<!--     </ul>-->
