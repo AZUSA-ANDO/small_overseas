@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h4 class="bg-light text-black px-4 offset-1">ジャンル一覧・追加ページ</h4>
+        <h4 class="text-black px-4 mt-4">Overseas area List＆Addiction</h4>
     </div>
   　<%= form_with model: @overseas_area, url: admin_overseas_areas_path, local:true do |f| %>
     <div class="row">
@@ -9,7 +9,7 @@
           <tr>
               <th>Overseas Area</th>
               <td><%= f.text_field :name %></td>
-              <td><%= f.submit "新規登録", class: "btn btn-secondary" %></td>
+              <td><%= f.submit "Add", class: "btn btn-secondary" %></td>
           </tr>
         </table>
       </div>
@@ -20,7 +20,7 @@
             <table class="table ">
                 <thead class="thead-light">
                     <tr>
-                        <th>海外エリアジャンル</th>
+                        <th>List</th>
                         <th></th>
                         <th></th>
                     </tr>
