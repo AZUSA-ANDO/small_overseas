@@ -6,7 +6,6 @@
     </div>
     <div class="col-10">
 
-      <div class = "col-10">
      <% if @datas.empty? %>
       <h4>Not posted yet...</h4>
       <% end %>
@@ -17,7 +16,9 @@
        <li>
          <div class="photo">
            <%= link_to spot_path(data.id) do %>
-           <%= attachment_image_tag data, :spot_image, format: 'jpeg', class: "contain" %>
+           <% data.spot_images.first(1).each do |image| %>
+           <%= attachment_image_tag image, :image, format: 'jpeg',width: '100%', height: 'auto' %>
+           <% end %>
            <div class="favorite-btn_<%= data.id %>">
            <%= render "public/favorites/favorite-btn", spot: data %>
            </div>
@@ -54,7 +55,7 @@
        <% end %>
      </ul>
 
-     </div>
+
 
 
     </div>

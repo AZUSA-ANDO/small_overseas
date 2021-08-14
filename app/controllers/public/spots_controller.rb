@@ -5,6 +5,8 @@ class Public::SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
+    @spot.spot_images.new
+    #@spot.spot_images.build
     @overseas_areas = OverseasArea.all
   end
 
@@ -12,6 +14,7 @@ class Public::SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.user_id = current_user.id
     if @spot.save
+      # @spot.add_images(params[:images_attributes][:"0"][:image])
       redirect_to spot_path(@spot.id)
     else
       render action: :new
@@ -48,11 +51,6 @@ class Public::SpotsController < ApplicationController
      redirect_to user_path(@spot.user_id)
    end
 
-    def search
-      @all_ranks = Spot.find(Favorite.group(:spot_id).order('count(spot_id) desc').limit(3).pluck(:spot_id))
-      @spots = Spot.all
-      @overseas_areas = OverseasArea.all
-    end
 
   def rank
     # 週間ランキング
@@ -68,9 +66,8 @@ class Public::SpotsController < ApplicationController
       :name,
       :introduction,
       :address,
-      :spot_image,
       :japan_area,
-      )
+      spot_images_images: [])
   end
 
 

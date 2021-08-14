@@ -38,7 +38,8 @@
         <div class="from-group ml-md-2">
           <%= f.label "Upload Photo" ,class:"form-label lead" %>
           <%= f.label "(写真をアップロード)", class:"form-label small" %>
-          <%= f.file_field :spot_image %>
+          <%= f.attachment_field :spot_images_images, multiple: true %>
+          <%#= f.file_field :spot_image %>
           <%= render 'layouts/error_messages', obj: @spot, column: :spot_image %>
         </div>
       </div>

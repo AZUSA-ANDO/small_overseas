@@ -10,14 +10,16 @@ class Spot < ApplicationRecord
 
   # has_many :favorited_users, through: :favorites, source: :user
 
-  attachment :spot_image
+  # attachment :spot_image
+  has_many :spot_images, dependent: :destroy
+  accepts_attachments_for :spot_images, attachment: :image
 
 
   validates :name, presence: true
   validates :introduction, presence: true
   validates :japan_area, presence: true
   validates :address, presence: true
-  validates :spot_image, presence: true
+  # validates :spot_image, presence: true
 
   enum japan_area: {
     北海道: 0,

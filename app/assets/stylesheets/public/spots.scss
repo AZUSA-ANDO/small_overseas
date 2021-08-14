@@ -49,36 +49,20 @@
     }
 
 
-// .box {
-//   display: flex;
-//   padding:20px;
-// }
-// .box .img {
-//   margin: 0 10px 0 0;
-// }
-// .box:nth-child(even) {
-//   flex-direction: row-reverse;
-// }
-// .box:nth-child(even) .img {
-//   margin: 0 0 0 20px;
-// }
 
-// .text-box{
-//   width:calc(100% - 320px);
-// }
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
 
-/* unrelated css */
+.slick-prev {
+    left: 10px !important;
+  z-index: 100;
+ }
 
-// .img {
-//   width:300px;
-//   height:auto;
-//   background: #bbb;
-//   display: flex;
-//   font-size:36px;
-//   color:#fff;
-//   align-items:center;
-//   justify-content:center;
-// }
+
+
+
 
 
 
