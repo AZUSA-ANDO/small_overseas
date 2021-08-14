@@ -1,12 +1,31 @@
 
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+
 <div class ="container">
 
   <div class="row mt-5">
 
-   <div class="col-md-12">
-     <div class="row">
+   <!--<div class="col-md-12">-->
 
-      <%= attachment_image_tag @spot, :spot_image, format: 'jpeg', width: '50%', height: '50%' %>
+     <div class="col-md-6">
+       <!--<div class="sliderArea">-->
+       <!-- <div class="regular slider">-->
+
+      <%#= attachment_image_tag @spot, :spot_image, format: 'jpeg', width: '50%', height: '50%' %>
+      <div id="slider">
+        <% @spot.spot_images.each do |image| %>
+        <%= attachment_image_tag image, :image, format: 'jpeg', width: '100%', height: 'auto' %>
+      <% end %>
+        </div>
+        <!-- </div>-->
+        <!--</div>-->
+
+    </div>
+
+
 
         <div class='col-md-5 pt-3 ml-3'>
 
@@ -63,8 +82,8 @@
 
         </div>
 
-      </div>
+      <!--</div>-->
 
 
-    </div>
+    <!--</div>-->
 </div>
