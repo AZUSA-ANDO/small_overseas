@@ -57,6 +57,8 @@ Rails.application.routes.draw do
 
     get "area_search", to: "search#search", as: "search"
 
+    get "rank_search", to: "spots#rank", as: "rank_search"
+
 
   end
 

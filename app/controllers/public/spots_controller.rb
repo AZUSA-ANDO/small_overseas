@@ -48,6 +48,17 @@ class Public::SpotsController < ApplicationController
      redirect_to user_path(@spot.user_id)
    end
 
+    def search
+      @all_ranks = Spot.find(Favorite.group(:spot_id).order('count(spot_id) desc').limit(3).pluck(:spot_id))
+      @spots = Spot.all
+      @overseas_areas = OverseasArea.all
+    end
+
+  def rank
+    # 週間ランキング
+    @week_post_like_ranks = Spot.find(Favorite.group(:spot_id).where(created_at: Time.current.all_week).order('count(spot_id) desc').pluck(:spot_id))
+  end
+
 
   private
   def spot_params
@@ -66,7 +77,6 @@ class Public::SpotsController < ApplicationController
   def set_overseas_areas
     @overseas_areas = OverseasArea.all
   end
-
 
 
 
