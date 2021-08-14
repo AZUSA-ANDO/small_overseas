@@ -16,7 +16,7 @@ class Admin::OverseasAreasController < ApplicationController
   def update
     overseas_area = OverseasArea.find(params[:id])
     overseas_area.update(overseas_area_params)
-    redirect to admin_overseas_areas_path
+    redirect_to admin_overseas_areas_path
   end
 
   def create

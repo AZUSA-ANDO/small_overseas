@@ -1,0 +1,72 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div>
+          <h2>User List</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 mx-auto">
+          <table class="table table-bordered">
+            <thead class="thead-light">
+              <th>
+                <p>User ID</p>
+              </th>
+              <th>
+                <p>Profile Photo</p>
+              </th>
+              <th>
+                <p>User name</p>
+              </th>
+              <th>
+                <p>email</p>
+              </th>
+              <th>
+                <p>status</p>
+              </th>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <p>
+                      <%= user.id %>
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+                   </p>
+                  </td>
+                  <td>
+                    <p>
+                      <%= link_to admin_user_path(user.id) do %>
+                      <%= user.name %>
+                      <% end %>
+                    </p>
+                  </td>
+                  <td>
+                    <p>
+                      <%= user.email %>
+                    </p>
+                  </td>
+                  <td>
+                    <% if user.is_deleted == false %>
+                     <p class="text-success">有効</p>
+                    <% else %>
+                     <p class="text-danger">退会</p>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @users %>
