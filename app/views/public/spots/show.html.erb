@@ -31,44 +31,51 @@
 
         <table class='table' >
          <tr>
-        	  <td>User name<small class="text-muted">：ユーザー名</small</td>
+        	  <td>User name<small class="text-muted">：ユーザー名</small></td>
         	  <td><%= @spot.user.name %></td>
           </tr>
           <tr>
-        	  <td>Area<small class="text-muted">：エリア</small</td>
+        	  <td>Area<small class="text-muted">：エリア</small></td>
         	  <td><%= @spot.japan_area %></td>
           </tr>
           <tr>
-        	  <td>Atmosphere<small class="text-muted">：雰囲気</small</td>
+        	  <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
         	  <td><%= @spot.overseas_area.name %></td>
           </tr>
           <tr>
-            <td>Address<small class="text-muted">：住所</small</td>
+            <td>Address<small class="text-muted">：住所</small></td>
             <td><%= @spot.address %></td>
           </tr>
           <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small</td>
+            <td>Spot name<small class="text-muted">：スポット名</small></td>
             <td><%= @spot.name %></td>
           </tr>
             <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small</td>
+            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
             <td><%= @spot.introduction %></td>
           </tr>
-          　<tr>
-          　 <td class="noborder favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
-          　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
-          　 </tr>
+          <% if user_signed_in? %>
+            <tr>
+            　 <td class="noborder favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
+            　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td colspan="2" class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+            </tr>
+          <% end %>
         </table>
 
         <%#= render 'public/spots/comment', spot: @spot,comment: @comment%>
 
-
-         <div class="text-center mt-3">
-         <% if @spot.user_id == current_user.id %>
-           <%= link_to "Edit", edit_spot_path, class:"btn btn-secondary w-25" %>
-           <%= link_to "Delete", spot_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:'btn btn-outline-secondary ml-4 w-25' %>
-         <% end %>
-         </div>
+        <% if user_signed_in? %>
+          <div class="text-center mt-3">
+            <% if @spot.user_id == current_user.id %>
+              <%= link_to "Edit", edit_spot_path, class:"btn btn-secondary w-25" %>
+              <%= link_to "Delete", spot_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:'btn btn-outline-secondary ml-4 w-25' %>
+            <% end %>
+          </div>
+        <% end %>
 
          <h5 class="mt-5">Comment</h5>
 
@@ -76,9 +83,11 @@
           <%= render 'public/comments/comment_index', spot: @spot %>
            </div>
 
+        <% if user_signed_in? %>
           <div class="post-comment">
-              <%= render "public/comments/comment_form", spot: @spot, comment: @comment %>
+            <%= render "public/comments/comment_form", spot: @spot, comment: @comment %>
           </div>
+        <% end %>
 
         </div>
 

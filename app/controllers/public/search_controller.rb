@@ -9,10 +9,12 @@ class Public::SearchController < ApplicationController
   end
 
 
+
   private
   def match(value)
     Spot.where(overseas_area_id: value)
   end
+
 
 
 end

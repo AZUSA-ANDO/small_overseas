@@ -1,5 +1,5 @@
 class Public::SpotsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :set_overseas_areas, only: [:index, :show, :new, :edit, :create,:update, :destroy]
 
@@ -54,7 +54,12 @@ class Public::SpotsController < ApplicationController
 
   def rank
     # 週間ランキング
-    @week_post_like_ranks = Spot.find(Favorite.group(:spot_id).where(created_at: Time.current.all_week).order('count(spot_id) desc').pluck(:spot_id))
+    @week_post_like_ranks = Spot.find(Favorite.group(:spot_id).where(created_at: Time.current.all_week).order('count(spot_id) desc').limit(10).pluck(:spot_id))
+  end
+
+  def search
+    # お店の名前or住所で検索
+    @search_spots = Spot.search(params[:key])
   end
 
 
@@ -74,7 +79,6 @@ class Public::SpotsController < ApplicationController
   def set_overseas_areas
     @overseas_areas = OverseasArea.all
   end
-
 
 
   def ensure_correct_user
