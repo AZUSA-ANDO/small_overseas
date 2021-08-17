@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <h4 class="text-black px-4 mt-4">Overseas area List＆Addiction</h4>
+    </div>
+  　<%= form_with model: @overseas_area, url: admin_overseas_areas_path, local:true do |f| %>
+    <div class="row">
+      <div class="col-12">
+        <table class="form-group table table-borderless col-6">
+          <tr>
+              <th>Overseas Area</th>
+              <td><%= f.text_field :name %></td>
+              <td><%= f.submit "Add", class: "btn btn-secondary" %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+        <div class="col-5">
+            <table class="table ">
+                <thead class="thead-light">
+                    <tr>
+                        <th>List</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @overseas_areas.each do |overseas_area| %>
+                    <tr>
+                        <td><%= overseas_area.name %></td>
+                        <td><%= link_to " Edit", edit_admin_overseas_area_path(overseas_area), class:"btn btn-secondary" %></td>
+                        <td><%= link_to "Delete", admin_overseas_area_path(overseas_area), method: :delete, data: {confirm: "本当に削除しますか？"}, class:'btn btn-outline-secondary' %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+$("#comment-<%= @spot.id %>").html("<%= j(render partial: 'public/comments/comment_index', locals: {spot: @spot} )%>")
+$('.post_comment').html("<%= escape_javascript(render "public/comments/comment_form", spot: @spot, comment: @comment) %>");
+$(".comment_<%= @spot.id %>").html("comment: <%= @spot.comments.count %>");
+
+
+$('textarea').val("");

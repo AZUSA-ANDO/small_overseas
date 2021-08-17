@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+  <%= flash[:error] %>
+  <span class="text-danger"><%= render "users/shared/error_messages", resource: resource %></span>
+    <div class= "col-md-8">
+      <h4>Log in<small class="text-muted">：ログイン</small></h4>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><small class="text-muted">：メールアドレス</small><br/>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" , size: "40"%>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><small class="text-muted">：パスワード</small><br/>
+            <%= f.password_field :password, autocomplete: "current-password", size: "40" %>
+          </div>
+
+
+          <div class="actions">
+            <%= f.button :type => "submit", class:"btn btn-outline-secondary mt-3" do %>
+            Log in<i class="fas fa-sign-in-alt"></i></i>
+          　<% end %>
+          </div>
+        　<% end %>
+        　<!--パスワードリセット画面へのリンク9月に実装？-->
+          <!--<div class="mt-2">-->
+          <!--<%#= render "users/shared/links" %>-->
+          <!--</div>-->
+        　<!--ここまで-->
+          <div class="mt-5">
+          <h4 classs="mt-4">Sign up<small class="text-muted">：新規会員登録</small></h4>
+          <%= link_to sign_up_path, class:"btn btn-outline-secondary mt-1" do %>
+          Sign up<i class="fas fa-user-plus"></i>
+          <% end %>
+          </div>
+      </div>
+ </div>
+</div>

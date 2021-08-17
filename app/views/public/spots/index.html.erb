@@ -1,0 +1,34 @@
+
+<div class="container">
+  <div class="row">
+
+  <div class="col-2">
+
+  <!--スポット名または住所で検索できるフォーム-->
+  <p>Search for "Spot name" or "Adress"</p>
+  <%= form_tag all_search_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :key %>
+      <%= submit_tag "Search"%>
+    </p>
+  <% end %>
+
+
+
+    <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
+  </div>
+
+  <div class = "col-10 mt-5">
+    <div class="text-right">
+    <%= link_to "Weekly ranking",rank_search_path %>
+    </div>
+    <%= render "public/spots/post_list", spots: @spots %>
+  </div>
+
+  </div>
+</div>
+
+
+
+
+

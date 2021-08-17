@@ -1,0 +1,55 @@
+<div class="container">
+ <div class="row">
+    <div class="col-md-11">
+      <h3 class="mt-2"><%= @user.name %>さん</h3>
+    </div>
+
+  </div>
+
+  <%= form_with model: @user, url: admin_user_path(@user), local: true do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-borderless">
+        <tr>
+          <th>User ID</th>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th style="width:60px"><%= f.label :name %></th>
+          <td>
+            <%= f.text_field :name %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :email %></th>
+          <td><%= f.text_field :email %></td>
+        </tr>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <!--form-inlineで横並びにする　flex-nowrapで折り返しなし-->
+        <tr class="form-group form-inline flex-nowrap">
+          <th class="form-group mr-3">status</th>
+          <td class="form-group">
+          　<%= f.radio_button :is_deleted, :false %>
+          　<%= f.label :is_deleted, "有効", value: :false %>
+          　<%= f.radio_button :is_deleted, :true %>
+          　<%= f.label :is_active, "退会", value: :true %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <%= f.submit "Update", class: "btn btn-secondary" %>
+          <% end %>
+          </td>
+        </tr>
+
+    </table>
+  </div>
+</div>
+
+
+</div>

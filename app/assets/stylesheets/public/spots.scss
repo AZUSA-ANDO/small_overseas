@@ -1,0 +1,90 @@
+// Place all the styles related to the public/spots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.contain {
+    width: 100%;    /* 横幅を割合で指定 */
+    height: auto;  /* 高さは自動指定 */
+}
+
+    ul {
+        max-width: 950px;
+    }
+
+    ul li {
+        display: flex;
+        align-items: center;
+
+    }
+
+
+    ul li .photo {
+        // 追加
+
+        width: 100%;
+        height: auto;
+
+        // transition-duration: 0.3s;
+
+    }
+
+    ul li .photo {
+	display: block;
+	transition-duration: 0.3s;	/*変化に掛かる時間*/
+}
+
+    ul li .photo:hover {
+                  opacity: 0.6;
+                  transition-duration: 0.3s;
+                  filter: brightness(60%);
+                  cursor: pointer;
+                }
+
+    ul li .txt {
+        width: 100%;
+        // box-sizing: border-box;
+    }
+
+//   写真を左右交互に
+
+     ul li:nth-child(odd) {
+        flex-direction: row-reverse;
+        margin-bottom: 70px;
+    }
+
+      ul li:nth-child(even) {
+        margin-bottom: 70px;
+    }
+
+    ul li:nth-child(odd) .txt {
+        padding-right: -50px;
+    }
+
+    ul li:nth-child(even) .txt {
+        padding-left: -50px;
+    }
+
+
+    ul li .datetime {
+        font-size:80％;
+    }
+
+
+
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
+
+.slick-prev {
+    left: 10px !important;
+  z-index: 100;
+ }
+
+
+
+
+
+
+

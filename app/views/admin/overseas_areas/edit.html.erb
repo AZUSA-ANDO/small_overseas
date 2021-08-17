@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mt-auto">
+      <div class="row pb-3">
+        <p class="col h3">Overseas area Edit</p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= form_with model: @overseas_area, url: admin_overseas_area_path(@overseas_area.id),method: :patch, local: true do |f| %>
+          <div class="form-group row align-items-center">
+            <%= f.label :name,"name",class:"my-auto" %>
+            <%= f.text_field :name, class: "ml-5" %>
+            <%= f.submit "Update", class: "ml-5 btn btn-secondary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>SmallOverseas</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!--下の2行を追加-->
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
+    <!--ここからヘッダー-->
+    <header>
+     <div class="navbar">
+       <div class="navbar navbar-brand mt-3">
+         <%#= link_to (root_path, class='logo_link') do%>
+          <%= link_to root_path, class: "logo_link" do %>
+            <div class="logo"><img src="/assets/logo.jpg" alt="">
+            </div>
+　　　　 <% end %>
+　　　 </div>
+
+      <!--ここから-->
+      <div class="navbar ml-auto">
+      <% if user_signed_in? %>
+            <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2" %>
+            <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2" %>
+
+
+      <% else %>
+
+            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2" %>
+            <%= link_to "LOGIN", log_in_path, method: :post, class:"nav-menu-text m-2" %>
+
+      <% end %>
+
+
+　　　</div>
+　　</div>
+
+
+    </header>
     <%= yield %>
+
+
   </body>
 </html>
