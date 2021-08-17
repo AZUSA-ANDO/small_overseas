@@ -1,82 +1,77 @@
 <div class="container">
   <h4 class="text-center">Weekly ranking</h4>
-    <!--last_likeを定義して0を代入-->
+    <!--前のいいね数を一時的に保存できる変数を作成-->
     <% last_like = 0 %>
-    <!--jを定義して1を代入-->
+    <!--順位を決める変数-->
     <% j = 1 %>
-
-    <!--いいねの多い順に並べたものを配列でまわす-->
-    <% @week_post_like_ranks.each.with_index(1) do |spot, i| %>
+    <!--この記述でいいね順になる-->
+    <% @week_post_like_ranks.each.with_index(1) do |ranking, i| %>
     <!--順位が1位のときlast_likeに値は入っていないため、１位のいいねのカウント数を代入-->
-    <% if i == 1 %>
-      <% last_like = spot.favorites.count %>
-    <% end %>
-
-    <!--rank.likes.countとlast_likeを比べて条件分岐-->
-    <!--値が一致しないとき-->
-    <% if spot.favorites.count != last_like %>
-      <!--値が一致しないということは次の順位を表示したいので-->
-      <!--j　に i　を代入して表示-->
+      <% if i == 1 %>
+        <% last_like = ranking.favorites.count %>
+      <% end %>
+    <!--もし前のいいね数と今のいいね数が違うなら順位が変わったことを指すので変数jにiの値を入れる-->
+    <!--その時のいいねがついている内容を表示して-->
+    <!--最後に今のいいね数は次のいいね数と比べるためにに前のいいね数にする-->
+    <% if ranking.favorites.count != last_like %>
       <% j = i %>
       No.<%= j %>
-      <p><%= spot.favorites.count %>いいね</p>
-      <!--値が一致していなのでlast_likeの値を更新-->
-      <% last_like = spot.favorites.count %>
+      <p><%= ranking.favorites.count %>いいね</p>
+      <% last_like = ranking.favorites.count %>
     <% else %>
-      <!--last_likeといいねのカウント数が同じとき-->
-      <!--値は同じですが今後も使うので、代入しておく-->
-      <% last_like = spot.favorites.count %>
-      <!--jには前の順位と同じ値が入っているので、更新せずそのまま表示-->
+　　　<!--もし前のいいね数と今のいいね数が同じなら同率の順位を示すのでjの値は変えずに普通に表示させる-->
+      <% last_like = ranking.favorites.count %>
       No.<%= j %>
-      <p><%= spot.favorites.count %>いいね</p>
+      <p><%= ranking.favorites.count %>いいね</p>
     <% end %>
+
     <ul>
-    <li>
-           <div class="photo">
-             <%= link_to spot_path(spot.id) do %>
-            <% spot.spot_images.first(1).each do |image| %>
+     <li>
+       <div class="photo">
+         <%= link_to spot_path(ranking.id) do %>
+            <% ranking.spot_images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain" %>
-            <% end %>
-             <div class="favorite-btn_<%= spot.id %>">
-             <%= render "public/favorites/favorite-btn", spot: spot %>
-             </div>
-           </div>
+          <% end %>
+         <div class="favorite-btn_<%= ranking.id %>">
+           <%= render "public/favorites/favorite-btn", spot: ranking %>
+         </div>
+       </div>
          <% end %>
 
-          <table class="table txt">
-            <tr>
-              <td>User name<small class="text-muted">：ユーザー名</small></td>
-              <td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
-            </tr>
-            <tr>
-      　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
-      　　　　　　<td><%= spot.japan_area %></td>
-            </tr>
-            <tr>
-              <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
-              <td><%= spot.overseas_area.name %></td>
-            </tr>
-            <tr>
-              <td>Address<small class="text-muted">：住所</small></td>
-              <td><%= spot.address %></td>
-            </tr>
-            <tr>
-              <td>Spot name<small class="text-muted">：スポット名</small></td>
-              <td><%= spot.name %></td>
-            </tr>
-            <tr>
-              <td>Spot introduction<small class="text-muted">：紹介文</small></td>
-              <td><%= spot.introduction %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
-            </tr>
-          </table>
+        <table class="table txt">
+          <tr>
+            <td>User name<small class="text-muted">：ユーザー名</small></td>
+            <td><%= link_to ranking.user.name, user_path(ranking.user.id) %></td>
+          </tr>
+          <tr>
+            <td>Area<small class="text-muted">:エリア</small></td>
+            <td><%= ranking.japan_area %></td>
+          </tr>
+          <tr>
+            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td><%= ranking.overseas_area.name %></td>
+          </tr>
+          <tr>
+            <td>Address<small class="text-muted">：住所</small></td>
+            <td><%= ranking.address %></td>
+          </tr>
+          <tr>
+            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td><%= ranking.name %></td>
+          </tr>
+          <tr>
+            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td><%= ranking.introduction %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><small class="text-muted"><%= ranking.created_at.to_s(:datetime) %></small></td>
+          </tr>
+        </table>
     </li>
-    </ul>
+   </ul>
 
-        <% end %>
+   <% end %>
 </div>
 
 

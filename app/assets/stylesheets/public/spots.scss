@@ -15,10 +15,32 @@
     ul li {
         display: flex;
         align-items: center;
+
     }
 
 
-    ul li .photo,
+    ul li .photo {
+        // 追加
+
+        width: 100%;
+        height: auto;
+
+        // transition-duration: 0.3s;
+
+    }
+
+    ul li .photo {
+	display: block;
+	transition-duration: 0.3s;	/*変化に掛かる時間*/
+}
+
+    ul li .photo:hover {
+                  opacity: 0.6;
+                  transition-duration: 0.3s;
+                  filter: brightness(60%);
+                  cursor: pointer;
+                }
+
     ul li .txt {
         width: 100%;
         // box-sizing: border-box;

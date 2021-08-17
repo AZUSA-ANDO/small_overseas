@@ -23,6 +23,7 @@
 /*global $*/
 
 
+// 写真複数枚のスライド
 $(function() {
   $('#slider').slick({
       dots: true, //スライドの下にドットのナビゲーションを表示
@@ -30,5 +31,28 @@ $(function() {
       autoplaySpeed: 4000, //再生スピード
   })
 });
+
+
+
+
+// $(document).on('ready', function() {
+//   $(".full").slick({
+//     arrows: false,
+//     dots: true,
+//     autoplay: true,
+//     autoplaySpeed: 1500,
+//     speed: 1500,
+//     fade: true,
+//     pauseOnFocus: false,
+//     pauseOnHover: false,
+//     pauseOnDotsHover: false,
+//   });
+// });
+
+
+
+
+
+
 
 
