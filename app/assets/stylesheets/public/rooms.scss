@@ -1,3 +1,33 @@
 // Place all the styles related to the public/rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.current_user {
+    background-color: #fffafa;
+    text-align: right;
+    width: fit-content;
+    margin: 10px 0 0 auto;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.visited_user {
+    background-color: #f5f5f5;
+    margin: 10px;
+    text-align: left;
+    width: fit-content;
+    margin: 10px auto 0 0;
+    border-radius:30px;
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    -ms-border-radius:30px;
+    -o-border-radius:30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
