@@ -5,6 +5,7 @@ class Public::FavoritesController < ApplicationController
 
   def create
     @spot = Spot.find(params[:spot_id])
+    @spot.create_notification_favorite!(current_user)
     favorite = @spot.favorites.new(user_id: current_user.id)
     favorite.save
 
