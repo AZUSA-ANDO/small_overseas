@@ -75,3 +75,127 @@ html, body {
 .about{
   font-size: 90%;
 }
+
+.like-btn {
+ color: #757575;
+ text-decoration: none;
+ }
+
+.unlike-btn {
+ color: #bb5a5a;
+ }
+
+ .photo .like-btn:hover,
+ .photo .unlike-btn:hover{
+  text-decoration: none;
+}
+
+
+.search_bar{
+  font-size: 90%;
+}
+
+
+.weekly_ranking {
+    background-color:#f0ece2;
+    color:#596e79;
+}
+
+.user_name,
+.follow,
+.follower,
+.overseas_area_search,
+.follow_btn,
+.fa-envelope{
+    color:#596e79;
+}
+
+.user_name:hover,
+.follow:hover,
+.follower:hover,
+.overseas_area_search:hover,
+.follow_btn:hover,
+.fa-envelope:hover{
+    color:#c7b198;
+    text-decoration: none;
+}
+
+// 通知機能
+.fa-times-circle {
+    color:#c7b198;
+}
+
+// アップデートボタン
+.btn-update{
+   background-color:#f0ece2;
+   color:#596e79;
+}
+
+// ページネーション
+.pagination {
+  justify-content: center;
+}
+
+.pagination > li > a {
+  border: none;
+  color: #999;
+}
+.pagination > li > a:hover {
+  color: #596e79;
+  background-color: white;
+}
+.pagination > .active > .page-link {
+  color: #596e79;
+  background-color: #f0ece2;
+}
+
+
+.pagination > .active > a:hover {
+  background-color: #f0ece2;
+  color: #596e79;
+}
+
+
+.number {
+    color:#535a3b;
+    font-size: 115%;
+    font-weight:500;
+}
+
+
+.nav-menu-text:hover{
+    background-color:#f0ece2;
+    color:#596e79;
+}
+
+.nav-menu-text{
+    color:#58727f;
+    font-weight:500;
+}
+
+.user_bar {
+  background-color:#F6F0E8;
+  height: 500px;
+}
+
+// 以下、フッターデザイン
+
+.myfooter{
+  border-top: 1px solid #dfd3c3;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.copy_right{
+  color: #596e79;
+}
+
+.contact{
+  color: #212121;
+}
+
+#info_mail{
+  color: #757575;
+  text-decoration: none;
+}
+

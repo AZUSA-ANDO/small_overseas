@@ -1,20 +1,20 @@
 <div class="container mt-4 align-imtes-center">
-  <div class='bg-light mx-auto mb-5'>
-    <h1 class="text-center">New Post!!</h1>
+  <div class='mx-auto mb-5'>
+    <h3 class="text-center">New Post</h3>
 
   <%= form_with model: @spot, method: :post, local:true do |f| %>
     <div class="row">
       <div class="col-md-6 col-lg-5 offset-lg-1">
         <div class="form-group mt-4 ml-md-2">
           <%= f.label "Area", class:"form-label lead" %>
-          <%= f.label "(エリア)", class:"form-label small" %></br>
+          <%= f.label "：エリア", class:"form-label small" %></br>
           <%= f.select :japan_area, Spot.japan_areas.keys.to_a, {} %>
         </div>
       </div>
        <div class="col-md-6 col-lg-5 offset-lg-1">
         <div class="form-group mt-4 ml-md-2">
           <%= f.label "Atmosphere", class:"form-label lead" %>
-          <%= f.label "(雰囲気)", class:"form-label small" %></br>
+          <%= f.label "：雰囲気", class:"form-label small" %></br>
           <%= f.collection_select :overseas_area_id, @overseas_areas, :id, :name %>
         </div>
       </div>
@@ -24,7 +24,7 @@
       <div class="col-md-6 col-lg-5 offset-lg-1">
         <div class="form-group ml-md-2">
           <%= f.label "Address" , class:"form-label lead" %>
-          <%= f.label "(住所)", class:"form-label small" %>
+          <%= f.label "：住所", class:"form-label small" %>
           <%= f.text_field :address, size:"60", class:'py-2 px-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :address %>
         </div>
@@ -37,9 +37,10 @@
       <div class="col-md-6 col-lg-5 offset-lg-1 mt-2">
         <div class="from-group ml-md-2">
           <%= f.label "Upload Photo" ,class:"form-label lead" %>
-          <%= f.label "(写真をアップロード)", class:"form-label small" %>
+          <%= f.label "：写真をアップロード", class:"form-label small" %></br>
+          <small class="text-muted">※写真は複数枚アップできます</br>※投稿詳細画面以外は１枚目のみ表示されます</small></br>
+          <!--multiple: trueは画像を複数枚アップロードできるようにするため-->
           <%= f.attachment_field :spot_images_images, multiple: true %>
-          <%#= f.file_field :spot_image %>
           <%= render 'layouts/error_messages', obj: @spot, column: :spot_image %>
         </div>
       </div>
@@ -49,7 +50,7 @@
      <div class="col-md-6 col-lg-5 offset-lg-1 mt-4">
         <div class="form-group ml-md-2">
           <%= f.label "Spot name" , class:"form-label lead" %>
-          <%= f.label "(スポット名)", class:"form-label small" %>
+          <%= f.label "：スポット名", class:"form-label small" %>
           <%= f.text_field :name, size: "45", class:'py-2 px-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :name %>
         </div>
@@ -60,7 +61,7 @@
       <div class="col-md-6 col-lg-5 offset-lg-1">
         <div class="form-group ml-md-2">
           <%= f.label "Spot introduction" , class:"form-label lead" %>
-          <%= f.label "(スポット紹介)", class:"form-label small" %>
+          <%= f.label "：スポット紹介", class:"form-label small" %>
           <%= f.text_area :introduction, size:"45 x 4", class:'p-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :introduction %>
         </div>

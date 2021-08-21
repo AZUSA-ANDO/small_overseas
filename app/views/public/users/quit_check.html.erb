@@ -3,21 +3,21 @@
   <div class="container">
     <div class="row mt-5">
       <div class="mx-auto">
-        <h4 class="text-center jp-font-classic">本当に退会しますか？</h4><br />
-        <p class="text-center jp-font-classic">
+        <h4 class="text-center">本当に退会しますか？</h4></br>
+        <p class="text-center">
           退会すると、会員登録情報や</br>
           これまで投稿したスポットの閲覧等ができなくなります。</br>
         </p>
-        <p class="text-center jp-font-classic">
-          退会する場合は「退会する」をクリックしてください。
+        <p class="text-center">
+          退会する場合は「はい」をクリックしてください。
         </p>
       </div>
     </div>
 
     <div class="row mt-4">
       <div class="mx-auto">
-        <%= link_to "退会しない", "/users/#{current_user.id}", class:'btn btn-sm btn-secondary' %>
-        <%= link_to "退会する", quit_users_path, method: :PATCH, data: {confirm: "本当に退会しますか？"}, class:'btn btn-sm btn-danger ml-4' %>
+        <%= link_to "いいえ", "/users/#{current_user.id}", class:'btn btn-sm btn-secondary' %>
+        <%= link_to "はい", quit_users_path, method: :PATCH, data: {confirm: "本当に退会しますか？"}, class:'btn btn-sm btn-info ml-4' %>
       </div>
     </div>
   </div>

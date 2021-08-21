@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protected
 
   # ログイン先を指定
-
   def after_sign_in_path_for(resource)
     case resource
     when Admin
@@ -19,9 +18,18 @@ class ApplicationController < ActionController::Base
   #   user_path(resource)
   # end
 
-  def after_sign_out_path_for(resource)
-    root_path
+
+    # ログアウト先を指定
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :admin
+      new_admin_session_path
+    elsif resource_or_scope == :user
+      root_path
+    end
   end
+
+
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])

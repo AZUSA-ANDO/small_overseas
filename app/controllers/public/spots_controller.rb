@@ -23,7 +23,7 @@ class Public::SpotsController < ApplicationController
 
   def index
     # 新しい投稿が上に来るように
-    @spots = Spot.all.order(created_at: :desc)
+    @spots = Spot.all.order(created_at: :desc).page(params[:page]).per(10)
     @overseas_areas = OverseasArea.all
   end
 

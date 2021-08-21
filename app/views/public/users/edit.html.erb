@@ -1,44 +1,117 @@
-<div style='height: 700px' class="d-flex align-items-center mt-4 mb-5">
-  <div class="bg-box-container mx-auto">
 
-    <h4 class="jp-font-classic text-center mt-4 mb-3">Edit my profile</h4>
+<div class="container mt-4 align-imtes-center">
+  <div class='mx-auto mb-5'>
+    <h3 class="text-center">Edit my profile</h3>
 
-    <div class="pt-0 px-4">
-      <div class="container">
-        <div class="row ml-2">
-          <%= form_with model: @user, local:true do |f| %>
-            <div class="form-group mt-2">
-              <%= f.label :profile_image, 'プロフィール写真:', class:'mb-1 font-weight-bold' %><br />
-              <%= f.attachment_field :profile_image %>
-            </div>
-
-            <div class="form-group mt-4">
-              <%= f.label :name, 'ユーザー名:', class:'mb-1 font-weight-bold' %><br />
-              <%= f.text_field :name, class:'form-control', size: "40" %>
-              <%#= render 'layouts/error_messages', obj: @user, column: :name %>
-            </div>
-
-            <div class="form-group mt-4">
-              <%= f.label :introduction, '自己紹介:', class:'mb-1 font-weight-bold' %><br />
-              <%= f.text_area :introduction, class:'form-control', size: "40x3" %>
-              <%#= render 'layouts/error_messages', obj: @user, column: :introduction %>
-            </div>
-            <div class="form-group mt-4">
-              <%= f.label :email, 'メールアドレス:', class:'mb-1 font-weight-bold' %><br />
-              <%= f.text_field :email, class:'form-control', size: "40" %>
-                <%#= render 'layouts/error_messages', obj: @user, column: :email %>
-            </div>
-
-
-            <!--<div class="form-group form-inline pt-3 mt-3 mb-4">-->
-              <%= f.submit 'update', class: 'btn btn-sm btn-warning text-white px-3' %>
-            <!--  <%#= link_to "退会する", users_quit_confirm_path, class: 'btn btn-sm btn-danger ml-4' %>-->
-            <!--</div>-->
-          <% end %>
+     <%= form_with model: @user, local:true do |f| %>
+    <div class="row">
+      <div class="col-md-6 col-lg-5 offset-lg-1">
+        <div class="form-group mt-4 ml-md-2">
+          <%= f.label "profile_image", class:"form-label lead" %>
+          <%= f.label ":プロフィール写真", class:"form-label small" %></br>
+          <%= f.attachment_field :profile_image %>
         </div>
-        <p>退会する場合は<%= link_to "こちら" ,quit_check_users_path %></p>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-5 offset-lg-1">
+        <div class="form-group ml-md-2">
+          <%= f.label "User Name" , class:"form-label lead" %>
+          <%= f.label ":ユーザー名", class:"form-label small" %>
+          <%= f.text_field :name, size: "40" %>
+          <%= render 'layouts/error_messages', obj: @user, column: :name %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-6 col-lg-5 offset-lg-1 mt-2">
+        <div class="from-group ml-md-2">
+          <%= f.label "Introduction" ,class:"form-label lead" %>
+          <%= f.label ":自己紹介", class:"form-label small" %>
+          <%= f.text_area :introduction, size: "40x3" %>
+          <%= render 'layouts/error_messages', obj: @user, column: :introduction %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col-md-6 col-lg-5 offset-lg-1 mt-4">
+        <div class="form-group ml-md-2">
+          <%= f.label "Email" , class:"form-label lead" %>
+          <%= f.label ":メールアドレス", class:"form-label small" %>
+          <%= f.text_field :email, size: "40" %>
+          <%= render 'layouts/error_messages', obj: @user, column: :email %>
+        </div>
+     </div>
+    </div>
+
+
+    <div class="row mt-4 pb-5">
+      <div class="form-inline mx-auto">
+        <%= f.submit 'update', class: 'btn btn-update mt-3' %>
+      </div>
+    </div>
+
+
+    <% end %>
+
+
+    <div class="mt-3 offset-lg-1">
+        <small>※退会する場合は<%= link_to "こちら" ,quit_check_users_path %></small>
     </div>
 
   </div>
 </div>
+
+
+<!--最終的に消す-->
+
+<!--<div style='height: 600px' class="d-flex align-items-center">-->
+<!--  <div class="bg-box-container mx-auto">-->
+
+<!--    <h4 class="text-center mt-4 mb-3">Edit my profile</h4>-->
+
+<!--      <div class="container">-->
+<!--        <div class="row ml-2">-->
+<!--          <%#= form_with model: @user, local:true do |f| %>-->
+<!--            <div class="mt-2">-->
+<!--              <%#= f.label :profile_image, 'Profile Photo', class:'mb-1' %>-->
+<!--              <small class="text-muted">:プロフィール写真</small><br/>-->
+<!--              <%#= f.attachment_field :profile_image %>-->
+<!--            </div>-->
+
+<!--            <div class="mt-4">-->
+<!--              <%#= f.label :name, 'User Name', class:'mb-1' %>-->
+<!--              <small class="text-muted">:ユーザー名</small><br/>-->
+<!--              <%#= f.text_field :name, size: "40" %>-->
+<!--              <%#= render 'layouts/error_messages', obj: @user, column: :name %>-->
+<!--            </div>-->
+
+<!--            <div class="mt-4">-->
+<!--              <%#= f.label :introduction, 'Introduction', class:'mb-1' %>-->
+<!--              <small class="text-muted">:自己紹介</small><br/>-->
+<!--              <%#= f.text_area :introduction, size: "40x3" %>-->
+<!--              <%#= render 'layouts/error_messages', obj: @user, column: :introduction %>-->
+<!--            </div>-->
+<!--            <div class="mt-4">-->
+<!--              <%#= f.label :email, 'Email', class:'mb-1' %>-->
+<!--              <small class="text-muted">:メールアドレス</small><br />-->
+<!--              <%#= f.text_field :email, size: "40" %>-->
+<!--                <%#= render 'layouts/error_messages', obj: @user, column: :email %>-->
+<!--            </div>-->
+<!--              <%#= f.submit 'update', class: 'btn btn-update mt-3' %>-->
+<!--          <%# end %>-->
+<!--        </div>-->
+
+<!--        <div class="mt-5">-->
+<!--        <small>※退会する場合は<%#= link_to "こちら" ,quit_check_users_path %></small>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--  </div>-->
+<!--</div>-->

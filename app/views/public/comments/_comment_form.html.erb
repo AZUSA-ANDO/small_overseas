@@ -1,4 +1,4 @@
 <%= form_with(model:[spot,comment], remote: true, method: :post, value: "") do |f| %>
-  <%= f.text_area :opinion, size:"55x5" %><br>
+  <%= f.text_area :opinion, size:"55x5" %>
   <%= f.submit '送信'%>
 <% end %>
