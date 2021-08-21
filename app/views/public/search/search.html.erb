@@ -1,13 +1,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
       <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
     </div>
-    <div class="col-10">
+    <div class="col-9">
+
+      <h3 class="text-center mb-5"><%= @overseas_area.name %></h3>
 
      <% if @datas.empty? %>
-      <h4>Not posted yet...</h4>
+      <h5 class="text-center">まだ投稿されていません</h5>
      <% end %>
 
 
@@ -29,33 +31,35 @@
 
         <table class="table txt">
           <tr>
-            <td>User name<small class="text-muted">：ユーザー名</small></td>
-　　　　　　<td><%= link_to data.user.name, user_path(data.user.id) %></td>
+            <td>User name</br><small class="text-muted">ユーザー名</small></td>
+　　　　　　<td><%= link_to data.user.name, user_path(data.user.id) ,class: "user_name" %></td>
           </tr>
 　　　　　<tr>
-　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
+　　　　　　<td>Area</br><small class="text-muted">エリア</small></td>
 　　　　　　<td><%= data.japan_area %></td>
           </tr>
           <tr>
-            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
             <td><%= data.overseas_area.name %></td>
           </tr>
           <tr>
-            <td>Address<small class="text-muted">：住所</small></td>
+            <td>Address</br><small class="text-muted">住所</small></td>
             <td><%= data.address %></td>
           </tr>
            <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td>Spot name</br><small class="text-muted">スポット名</small></td>
             <td><%= data.name %></td>
           </tr>
           <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
             <td><%= data.introduction %></td>
           </tr>
         </table>
        </li>
        <% end %>
      </ul>
+
+     <%= paginate @datas %>
 
     </div>
 

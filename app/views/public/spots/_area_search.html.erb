@@ -1,14 +1,14 @@
 <table class = "area-sidber table">
 
-　<h5>Atmosphere</h5>
+　<h6>Atmosphere<small class="text-muted text-left">:雰囲気</small></h6>
   <tr>
-    <td><%= link_to "All", spots_path %></td>
+    <td><%= link_to "All", spots_path,class: "overseas_area_search" %></td>
   </tr>
 
   <% overseas_areas.each do |overseas_area| %>
   <tr>
     <td>
-      <%= link_to overseas_area.name, search_path("value": overseas_area.id) %>
+      <%= link_to overseas_area.name, search_path("value": overseas_area.id),class: "overseas_area_search" %>
     </td>
   </tr>
      <% end %>

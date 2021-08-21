@@ -24,27 +24,27 @@
 
         <table class="table txt">
           <tr>
-            <td>User name<small class="text-muted">：ユーザー名</small></td>
-　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
+            <td>User name</br><small class="text-muted">ユーザー名</small></td>
+　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) ,class: "user_name" %></td>
           </tr>
 　　　　　<tr>
-　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
+　　　　　　<td>Area</br><small class="text-muted">エリア</small></td>
 　　　　　　<td><%= spot.japan_area %></td>
           </tr>
           <tr>
-            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
             <td><%= spot.overseas_area.name %></td>
           </tr>
           <tr>
-            <td>Address<small class="text-muted">：住所</small></td>
+            <td>Address</br><small class="text-muted">住所</small></td>
             <td><%= spot.address %></td>
           </tr>
            <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td>Spot name</br><small class="text-muted">スポット名</small></td>
             <td><%= spot.name %></td>
           </tr>
           <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
             <td><%= spot.introduction %></td>
           </tr>
           <tr>

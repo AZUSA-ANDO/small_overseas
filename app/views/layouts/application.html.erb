@@ -34,14 +34,17 @@
       <!--ここから-->
       <div class="navbar ml-auto">
       <% if user_signed_in? %>
-            <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2" %>
-            <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2" %>
+            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
+            <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
+            <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2 btn" %>
+            <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2 btn" %>
 
 
       <% else %>
 
-            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2" %>
-            <%= link_to "LOGIN", log_in_path, method: :post, class:"nav-menu-text m-2" %>
+            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
+            <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
+            <%= link_to "LOGIN", log_in_path, method: :post, class:"nav-menu-text m-2 btn" %>
 
       <% end %>
 
@@ -52,12 +55,29 @@
 
     </header>
 
-
-
     <!--<p class="notice"><%#= notice %></p>-->
     <!--<p class="alert"><%#= alert %></p>-->
 
     <%= yield %>
+
+    <!--フッター-->
+
+    <footer class="p-5 mt-5">
+        <div class="myfooter">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 text-mated">
+                <p class="contact">Contact<small class="text-muted">(お問い合わせ)</small></p>
+                <p class="mail">Mail<i class="fas fa-envelope-square ml-1"></i>：<u><a href="mailto:info@small_overseas.com" id="info_mail">info@small_overseas.com</a></u></p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="text-mated text-center copy_right">©small_overseas</div>
+          </div>
+      </div>
+    </footer>
+
 
 
   </body>

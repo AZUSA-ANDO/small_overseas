@@ -6,10 +6,11 @@
 
 <div class ="container">
 
+  <h5 class="text-center">Post details</h5>
+
   <div class="row mt-5">
 
    <!--<div class="col-md-12">-->
-
      <div class="col-md-6">
        <!--<div class="sliderArea">-->
        <!-- <div class="regular slider">-->
@@ -77,14 +78,14 @@
           </div>
         <% end %>
 
-         <h5 class="mt-5">Comment</h5>
+         <h5 class="mt-4">Comment<small class="text-muted">：コメント</small></h5>
 
           <div id="comment-<%= @spot.id %>">
           <%= render 'public/comments/comment_index', spot: @spot %>
            </div>
 
         <% if user_signed_in? %>
-          <div class="post-comment">
+          <div class="post-comment mb-5">
             <%= render "public/comments/comment_form", spot: @spot, comment: @comment %>
           </div>
         <% end %>
