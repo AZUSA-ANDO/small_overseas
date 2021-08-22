@@ -7,6 +7,8 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :address, null: false
       t.text :introduction, null: false
       t.integer :japan_area, null: false, default: 0
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

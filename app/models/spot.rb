@@ -17,11 +17,16 @@ class Spot < ApplicationRecord
   # 通知機能
   has_many :notifications, dependent: :destroy
 
+  # 地図機能
+  # 住所を入れると自動的に緯度・経度を測る
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
   validates :name, presence: true
   validates :introduction, presence: true
   validates :japan_area, presence: true
-  validates :address, presence: true
+  # validates :address, presence: true
   validates :spot_images, presence: true
 
   enum japan_area: {
