@@ -75,6 +75,10 @@ gem 'font-awesome-sass'
 
 gem 'jquery-rails'
 
+# 地図表記
+gem 'geocoder'
+
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

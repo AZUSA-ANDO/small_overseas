@@ -1,8 +1,36 @@
 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GoogleAPI_Key'] %>&callback=initMap"></script>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!--以下地図表示のための記述-->
+  <script type="text/javascript">
+    function initMap() {
+      //latitude,longitudeから位置を特定
+      var test ={lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: test
+                });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
 
+      var contentString = '住所：<%= @spot.address %>';
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
 
+      //Map上の指定した位置にピンを挿して表示する
+      var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                   });
+
+       marker.addListener('click', function() {
+         infowindow.open(map, marker);
+       });
+    }
+  </script>
+<!--ここまで-->
 
 <div class ="container">
 
@@ -48,6 +76,10 @@
             <td><%= @spot.address %></td>
           </tr>
           <tr>
+            <td>Map<small class="text-muted">：地図</small></td>
+            <td><div id="map"></div></td>
+          </tr>
+          <tr>
             <td>Spot name<small class="text-muted">：スポット名</small></td>
             <td><%= @spot.name %></td>
           </tr>
@@ -80,7 +112,7 @@
 
          <h5 class="mt-4">Comment<small class="text-muted">：コメント</small></h5>
 
-          <div id="comment-<%= @spot.id %>">
+          <div class="comment-<%= @spot.id %>">
           <%= render 'public/comments/comment_index', spot: @spot %>
            </div>
 
@@ -97,3 +129,10 @@
 
     <!--</div>-->
 </div>
+
+
+
+
+
+
+
