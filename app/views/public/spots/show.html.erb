@@ -1,7 +1,5 @@
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GoogleAPI_Key'] %>&callback=initMap"></script>
-
 <!--以下地図表示のための記述-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GoogleAPI_Key'] %>&callback=initMap"></script>
   <script type="text/javascript">
     function initMap() {
       //latitude,longitudeから位置を特定
@@ -33,74 +31,53 @@
 <!--ここまで-->
 
 <div class ="container">
-
-  <h5 class="text-center">Post details</h5>
-
-  <div class="row mt-5">
-
-   <!--<div class="col-md-12">-->
-     <div class="col-md-6">
-       <!--<div class="sliderArea">-->
-       <!-- <div class="regular slider">-->
-
-      <%#= attachment_image_tag @spot, :spot_image, format: 'jpeg', width: '50%', height: '50%' %>
-      <div id="slider">
-        <% @spot.spot_images.each do |image| %>
-        <%= attachment_image_tag image, :image, format: 'jpeg', width: '100%', height: 'auto' %>
-      <% end %>
-        </div>
-        <!-- </div>-->
-        <!--</div>-->
-
-    </div>
-
-
+  <h4 class="text-center">Post details</h4>
+    <div class="row mt-5">
+       <div class="col-md-6 mt-4">
+          <div id="slider">
+            <% @spot.spot_images.each do |image| %>
+             <%= attachment_image_tag image, :image, format: 'jpeg', width: '100%', height: 'auto' %>
+            <% end %>
+          </div>
+       </div>
 
         <div class='col-md-5 pt-3 ml-3'>
-
-        <table class='table' >
-         <tr>
-        	  <td>User name<small class="text-muted">：ユーザー名</small></td>
-        	  <td><%= @spot.user.name %></td>
-          </tr>
-          <tr>
-        	  <td>Area<small class="text-muted">：エリア</small></td>
-        	  <td><%= @spot.japan_area %></td>
-          </tr>
-          <tr>
-        	  <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
-        	  <td><%= @spot.overseas_area.name %></td>
-          </tr>
-          <tr>
-            <td>Address<small class="text-muted">：住所</small></td>
-            <td><%= @spot.address %></td>
-          </tr>
-          <tr>
-            <td>Map<small class="text-muted">：地図</small></td>
-            <td><div id="map"></div></td>
-          </tr>
-          <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small></td>
-            <td><%= @spot.name %></td>
-          </tr>
-            <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
-            <td><%= @spot.introduction %></td>
-          </tr>
-          <% if user_signed_in? %>
-            <tr>
-            　 <td class="noborder favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
-            　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+          <table class='table' >
+           <tr>
+          	  <td>User name</br><small class="text-muted">ユーザー名</small></td>
+          	  <td><%= @spot.user.name %></td>
             </tr>
-          <% else %>
             <tr>
-              <td colspan="2" class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+          	  <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
+          	  <td><%= @spot.overseas_area.name %></td>
             </tr>
-          <% end %>
-        </table>
-
-        <%#= render 'public/spots/comment', spot: @spot,comment: @comment%>
-
+            <tr>
+              <td>Address</br><small class="text-muted">住所</small></td>
+              <td><%= @spot.address %></td>
+            </tr>
+            <tr>
+              <td>Map</br><small class="text-muted">地図</small></td>
+              <td><div id="map"></div></td>
+            </tr>
+            <tr>
+              <td>Spot name</br><small class="text-muted">スポット名</small></td>
+              <td><%= @spot.name %></td>
+            </tr>
+              <tr>
+              <td>Spot introduction</br><small class="text-muted">紹介文</small></td>
+              <td><%= @spot.introduction %></td>
+            </tr>
+            <% if user_signed_in? %>
+              <tr>
+              　 <td class="favorite-btn_<%= @spot.id %>"><%= render "public/favorites/favorite-btn", spot: @spot %></td>
+              　 <td class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <td colspan="2" class="comment_<%= @spot.id %>"><%= render 'public/comments/count', spot: @spot %></td>
+              </tr>
+            <% end %>
+          </table>
         <% if user_signed_in? %>
           <div class="text-center mt-3">
             <% if @spot.user_id == current_user.id %>
@@ -110,11 +87,10 @@
           </div>
         <% end %>
 
-         <h5 class="mt-4">Comment<small class="text-muted">：コメント</small></h5>
-
-          <div class="comment-<%= @spot.id %>">
+        <h5 class="mt-4">Comment<small class="text-muted">：コメント</small></h5>
+        <div class="comment-<%= @spot.id %>">
           <%= render 'public/comments/comment_index', spot: @spot %>
-           </div>
+        </div>
 
         <% if user_signed_in? %>
           <div class="post-comment mb-5">
@@ -122,12 +98,7 @@
           </div>
         <% end %>
 
-        </div>
-
-      <!--</div>-->
-
-
-    <!--</div>-->
+    </div>
 </div>
 
 

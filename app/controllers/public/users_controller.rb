@@ -5,13 +5,16 @@ class Public::UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @spots = @user.spots.page(params[:page]).per(10).order('updated_at DESC')
-    
+
     if user_signed_in?
+    # roomがcreateされた時に、現在ログインしているユーザーと、「Start DM」を押されたユーザーの両方をEntriesテーブルに記録する必要があるので、
+    # whereメソッドでそのユーザーを探している
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
     unless @user.id == current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
+          # 既にroomが作成されている場合
           if cu.room_id == u.room_id then
             @isRoom = true
             @roomId = cu.room_id
@@ -29,7 +32,6 @@ class Public::UsersController < ApplicationController
 
 
 
-
   def edit
   end
 
@@ -41,7 +43,7 @@ class Public::UsersController < ApplicationController
     end
   end
 
-
+# 退会
   def quit
     user = current_user
     user.update(is_deleted: true)

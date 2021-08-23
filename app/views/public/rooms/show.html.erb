@@ -2,48 +2,24 @@
  <h4 class="text-center">DM<i class="far fa-envelope-open"></i></h4>
   <p class="mt-1 text-center">You can send messages to each other!<small class="text-muted">（お互いにメッセージを送りあうことができます）</small></p>
     <% @entries.each do |entry| %>
-      <div class="user-name d-inline-flex mr-4 mt-5">
-      <strong>
-         <%= attachment_image_tag(entry.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
-          <a class="rooms-user-link" href="/users/<%= entry.user.id %>">
-            <%= entry.user.name %>
-          </a>
-      </strong>
+      <div class="d-inline-flex mr-4 mt-5">
+        <strong>
+           <%= attachment_image_tag(entry.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
+            <a class="user_name" href="/users/<%= entry.user.id %>">
+              <%= entry.user.name %>
+            </a>
+        </strong>
       </div>
      <% end %>
-          <div class="posts text-right">
-
-      <!--<%#= form_with(model: @message, local: true) do |f| %>-->
-      <!--  <%#= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 50, class:"form-text-field mr-3" %>-->
-      <!--    <%#= f.hidden_field :room_id, value: @room.id %>-->
-
-      <!--      <%#= f.button :type => "submit", style: 'border-style: none;' do %>-->
-      <!--      <i class="far fa-paper-plane"></i>-->
-      <!--      <%# end %>-->
-      <!--<%# end %>-->
-         <%= render "message_form", message: @message, room: @room %>
+      <div class="posts text-right">
+       <%= render "message_form", message: @message, room: @room %>
+      </div>
+      <hr>
+      <div class="chats">
+        <div class="chat-<%= @room.id %>">
+          <%= render "message", messages: @messages %>
         </div>
-<hr>
-  <div class="chats">
-    <div class="chat-<%= @room.id %>">
-     <!--<%# @messages.each do |message| %>-->
-     <!--   <%# if message.user_id == current_user.id %>-->
-     <!--       <div class="current_user">-->
-     <!--         <%#= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>-->
-     <!--           <strong class="current_user"><%#= message.body %></strong>-->
-     <!--           <small class="current_user"><%#= message.user.name %></small>-->
-     <!--       </div>-->
-     <!--   <%# else %>-->
-     <!--       <div class="visited_user">-->
-     <!--         <%#= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>-->
-     <!--           <strong class="visited_user"><%#= message.body %></strong>-->
-     <!--           <small class="visited_user"><%#= message.user.name %></small>-->
-     <!--       </div>-->
-     <!--   <%# end %>-->
-     <!--<%# end %>-->
-     <%= render "message", messages: @messages %>
-    </div>
-
-  </div>
+      </div>
+          <%= paginate @messages %>
 </div>
 

@@ -2,52 +2,50 @@
 <div class='container px-sm-0'>
   <div class='row'>
     <div class='col-md-3 pt-3 user_bar mt-5'>
+     <p style="color:#ff6d24;"><%= flash[:notice] %></p>
+      <table class='table'>
+        <tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+        <tr>
+      	  <th>name</th>
+      	  <th><%= @user.name %></th>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <th><%= @user.introduction %></th>
+        </tr>
 
-<table class='table'>
-  <tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
-  <tr>
-	  <th>name</th>
-	  <th><%= @user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= @user.introduction %></th>
-  </tr>
+        <tr>
+          <th>follows</th>
+          <th><%= link_to @user.follower.count, user_follows_path(@user) ,class: "follow" %></th>
+        </tr>
+        <tr>
+          <th>followers</th>
+          <th><%= link_to @user.followed.count, user_followers_path(@user),class: "follow" %></th>
+        </tr>
 
-  <tr>
-    <th>follows</th>
-    <th class="follow_<%= @user.id %>"><%= render "public/relationships/follow-count", user: @user %></th>
-      <%#= link_to @user.follower.count, user_follows_path(@user) %>
-  </tr>
-  <tr>
-    <th>followers</th>
-    <th class="follower_<%= @user.id %>"><%= render "public/relationships/follower-count", user: @user %></th>
-      <%#= link_to @user.followed.count, user_followers_path(@user) %>
-  </tr>
-
-  <% if user_signed_in? %>
-  <tr>
-    <!--フォローボタン-->
-    <th class="follow-btn_<%= @user.id %>"><%= render "public/relationships/follow-btn", user: @user %>
-    </th>
-    <th>
-      <!--自分以外の人の表示-->
-        <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
-        <% if @isRoom == true %>
-          <p class="user-show-room"><a href="/rooms/<%= @roomId %>"><i class="fas fa-envelope fa-lg"></i></a>
-        <% else %>
-          <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, value: @user.id %>
-            <% end %>
-            <%= f.submit "Send DM", class:"btn btn-secondary user-show-chat"%>
-          <% end %>
+        <% if user_signed_in? %>
+        <tr>
+          <!--フォローボタン-->
+          <th class="follow-btn_<%= @user.id %>"><%= render "public/relationships/follow-btn", user: @user %>
+          </th>
+          <th>
+            <!--自分以外の人の表示-->
+              <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
+              <% if @isRoom == true %>
+                <p class="user-show-room"><a href="/rooms/<%= @roomId %>"><i class="fas fa-envelope fa-lg"></i></a>
+              <% else %>
+                <%= form_for @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, value: @user.id %>
+                  <% end %>
+                  <%= f.submit "Send DM", class:"btn btn-secondary user-show-chat"%>
+                <% end %>
+              <% end %>
+              <% end %>
+            </th>
+        </tr>
         <% end %>
-        <% end %>
-      </th>
-  </tr>
-  <% end %>
-</table>
+      </table>
 
 
     <% if user_signed_in? %>
@@ -55,7 +53,6 @@
       <div class='mt-3 text-center icon'>
         <!--自分にしか見えない表示-->
         <% if @user.id == current_user.id %>
-        <%#= link_to 'Edit',edit_user_path(@user),class: "btn btn-outline-secondary" %>
         <%= link_to edit_user_path(@user) do %>
         <i class="fas fa-user-edit fa-2x mr-4" style="color: slategray"></i>
         <% end %>
@@ -78,11 +75,11 @@
 
 
      <div class='col-md-9'>
-      <h3 class="text-left ml-5">My Page</h3>
-        <div class="text-left ml-5">Click the photo to go to the details page!!
-        <small class="text-muted">/ 写真をクリックすると詳細ページへ</small></br>
-        You can post a new post by pressing the + button.
-        <small class="text-muted">/ ＋ボタンを押すと新規投稿ができます</small>
+      <h3 class="text-left ml-5"><%= @user.name %>'s Page</h3>
+        <div class="text-left ml-5">Click the photo to go to the details page.
+          <small class="text-muted">/ 写真をクリックすると詳細ページへ</small></br>
+          You can post a new post by pressing the + button.
+          <small class="text-muted">/ ＋ボタンを押すと新規投稿ができます</small>
           <p class="text-right mb-5">
             <%= link_to new_spot_path do %>
             <i class="far fa-plus-square fa-3x text-right" style="color: lightslategray;"></i>
@@ -96,53 +93,44 @@
          <div class="photo">
 
           <%= link_to spot_path(spot.id) do %>
-           <!--ここから-->
-
-          <%# spot.spot_images.each do |image| %>
-          <% spot.spot_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain" %>
-          <% end %>
-
-          <!--ここまで-->
-           <%#= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>
-           <% if user_signed_in? %>
-             <div class="favorite-btn_<%= spot.id %>">
-               <%= render "public/favorites/favorite-btn", spot: spot %>
-             </div>
-           <% end %>
+            <% spot.spot_images.first(1).each do |image| %>
+              <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain" %>
+            <% end %>
+             <% if user_signed_in? %>
+               <div class="favorite-btn_<%= spot.id %>">
+                 <%= render "public/favorites/favorite-btn", spot: spot %>
+               </div>
+             <% end %>
          </div>
        <% end %>
 
-        <table class="table txt">
-　　　　　<tr>
-　　　　　　<td>Area</br><small class="text-muted">エリア</small></td>
-　　　　　　<td><%= spot.japan_area %></td>
-          </tr>
-          <tr>
-            <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
-            <td><%= spot.overseas_area.name %></td>
-          </tr>
-          <tr>
-            <td>Address</br><small class="text-muted">住所</small></td>
-            <td><%= spot.address %></td>
-          </tr>
-           <tr>
-            <td>Spot name</br><small class="text-muted">スポット名</small></td>
-            <td><%= spot.name %></td>
-          </tr>
-          <tr>
-            <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
-            <td><%= spot.introduction %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
-          </tr>
-        </table>
+          <table class="table txt">
+            <tr>
+              <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
+              <td><%= spot.overseas_area.name %></td>
+            </tr>
+            <tr>
+              <td>Address</br><small class="text-muted">住所</small></td>
+              <td><%= spot.address %></td>
+            </tr>
+             <tr>
+              <td>Spot name</br><small class="text-muted">スポット名</small></td>
+              <td><%= spot.name %></td>
+            </tr>
+            <tr>
+              <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
+              <td><%= spot.introduction %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
+            </tr>
+          </table>
        </li>
        <% end %>
      </ul>
       </div>
+      <%= paginate @spots %>
      </div>
     </div>
   </div>

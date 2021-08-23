@@ -16,8 +16,7 @@ class User < ApplicationRecord
    has_many :messages, dependent: :destroy
    has_many :entries, dependent: :destroy
 
-  # # フォロー機能
-
+  # フォロー機能
    has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
    has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
    has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
@@ -27,10 +26,9 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+
    def follow(user_id)
-
     follower.create(followed_id: user_id)
-
    end
 
   # ユーザーのフォローを外す

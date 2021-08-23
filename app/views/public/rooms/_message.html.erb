@@ -1,15 +1,15 @@
  <% messages.each do |message| %>
-        <% if message.user_id == current_user.id %>
-            <div class="current_user">
-              <%= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
-                <strong class="current_user"><%= message.body %></strong>
-                <small class="current_user"><%= message.user.name %></small>
-            </div>
-        <% else %>
-            <div class="visited_user">
-              <%= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
-                <strong class="visited_user"><%= message.body %></strong>
-                <small class="visited_user"><%= message.user.name %></small>
-            </div>
-        <% end %>
-     <% end %>
+    <% if message.user_id == current_user.id %>
+        <div class="current_user">
+          <%= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
+            <strong class="current_user"><%= message.body %></strong>
+            <small class="current_user"><%= message.user.name %></small>
+        </div>
+    <% else %>
+        <div class="visited_user">
+          <%= attachment_image_tag(message.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
+            <strong class="visited_user"><%= message.body %></strong>
+            <small class="visited_user"><%= message.user.name %></small>
+        </div>
+    <% end %>
+<% end %>

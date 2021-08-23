@@ -3,25 +3,24 @@
   <div class="row">
     <div class="col-2">
     </div>
-    <div class="col-10">
-
-     <% if @search_spots.empty? %>
-      <h4>Not posted yet...</h4>
+    <div class="col-10 mt-5">
+      <h4 class="mb-5 text-center">Search results<small class="text-muted">：検索結果</small></h4>
+      <% if @search_spots.empty? %>
+        <h5 class="text-center">Not posted yet<small class="text-muted">（まだ投稿されていません）</small></h5>
       <% end %>
-
 
      <ul>
        <% @search_spots.each do |spot| %>
        <li>
          <div class="photo">
            <%= link_to spot_path(spot.id) do %>
-           <% spot.spot_images.first(1).each do |image| %>
-           <%= attachment_image_tag image, :image, format: 'jpeg',width: '100%', height: 'auto' %>
+             <% spot.spot_images.first(1).each do |image| %>
+             <%= attachment_image_tag image, :image, format: 'jpeg',width: '100%', height: 'auto' %>
            <% end %>
            <% if user_signed_in? %>
-           <div class="favorite-btn_<%= spot.id %>">
-           <%= render "public/favorites/favorite-btn", spot: spot %>
-           </div>
+             <div class="favorite-btn_<%= spot.id %>">
+               <%= render "public/favorites/favorite-btn", spot: spot %>
+             </div>
            <% end %>
          </div>
        <% end %>
@@ -29,11 +28,7 @@
         <table class="table txt">
           <tr>
             <td>User name<small class="text-muted">：ユーザー名</small></td>
-　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
-          </tr>
-　　　　　<tr>
-　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
-　　　　　　<td><%= spot.japan_area %></td>
+　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) ,class: "user_name" %></td>
           </tr>
           <tr>
             <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
@@ -57,7 +52,5 @@
      </ul>
 
     </div>
-
-
   </div>
 </div>

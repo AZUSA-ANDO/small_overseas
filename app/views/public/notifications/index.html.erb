@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h4 class="text-center">Notification List..</h4>
+      <h4 class="text-center">Notification List</h4>
       <div class="border p-3">
         <small class="text-muted">（通知一覧）</small>
         <% notifications = @notifications.where.not(visitor_id: current_user.id) %>

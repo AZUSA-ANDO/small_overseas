@@ -34,13 +34,12 @@ html, body {
 }
 
 
-// TOP画面のslick
+
 
 // TOP画面の画像
 .img01{
   height: 87vh;
   width: 100%;
-  // background-image: url(../../images/set1.png);
   background-image: image-url('top2.jpg');
   background-size:cover;
   opacity: 0.85;
@@ -56,15 +55,14 @@ html, body {
 .logo_link:hover {
   text-decoration: none;
 }
-
+// アバウトページで使用
 .img02{
-  height: 80vh;
+  height: 88vh;
   width: 100%;
   background-image: image-url('about.jpg');
   background-size:cover;
   opacity: 0.85;
 }
-
 
 .uline {
 	padding-bottom: 9px;
@@ -76,6 +74,7 @@ html, body {
   font-size: 90%;
 }
 
+// いいねボタンの色を変更
 .like-btn {
  color: #757575;
  text-decoration: none;
@@ -85,8 +84,10 @@ html, body {
  color: #bb5a5a;
  }
 
+// いいねボタンをマウスオーバーした時、下線をなくす
  .photo .like-btn:hover,
- .photo .unlike-btn:hover{
+ .photo .unlike-btn:hover,
+ .photo:hover{
   text-decoration: none;
 }
 
@@ -101,12 +102,14 @@ html, body {
     color:#596e79;
 }
 
+// リンクの色を変える
 .user_name,
 .follow,
 .follower,
 .overseas_area_search,
 .follow_btn,
-.fa-envelope{
+.fa-envelope,
+.link_color{
     color:#596e79;
 }
 
@@ -115,7 +118,8 @@ html, body {
 .follower:hover,
 .overseas_area_search:hover,
 .follow_btn:hover,
-.fa-envelope:hover{
+.fa-envelope:hover,
+.link_color:hover{
     color:#c7b198;
     text-decoration: none;
 }
@@ -162,7 +166,7 @@ html, body {
     font-weight:500;
 }
 
-
+// ヘッダーデザイン
 .nav-menu-text:hover{
     background-color:#f0ece2;
     color:#596e79;
@@ -202,4 +206,40 @@ html, body {
 #map{
   height: 150px;
   width:270px;
+}
+
+// トップへ戻るボタン
+
+#pagetop{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  background: #dfd3c3;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#pagetop a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  text-align: center;
+}
+#pagetop a::before{
+  font-family: "Font Awesome 5 Free";
+  content: '\f106';
+  font-weight: 900;
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
 }
