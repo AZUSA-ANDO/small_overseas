@@ -9,7 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <!--下の2行を追加-->
+    <!--slick導入のため下の2行を追加-->
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -24,41 +24,38 @@
     <header>
      <div class="navbar">
        <div class="navbar navbar-brand mt-3">
-         <%#= link_to (root_path, class='logo_link') do%>
           <%= link_to root_path, class: "logo_link" do %>
-            <div class="logo"><img src="/assets/logo.jpg" alt="">
+            <div class="logo">
+              <%= image_tag asset_path("/assets/logo.jpg", alt: "ロゴ") %>
             </div>
 　　　　 <% end %>
 　　　 </div>
-
-      <!--ここから-->
-      <div class="navbar ml-auto">
-      <% if user_signed_in? %>
-            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
-            <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
-            <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2 btn" %>
-            <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2 btn" %>
+        <div class="navbar ml-auto">
+          <% if user_signed_in? %>
+                <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
+                <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
+                <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2 btn" %>
+                <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2 btn" %>
 
 
-      <% else %>
+          <% else %>
 
-            <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
-            <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
-            <%= link_to "LOGIN", log_in_path, method: :post, class:"nav-menu-text m-2 btn" %>
+                <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
+                <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
+                <%= link_to "LOGIN", log_in_path, class:"nav-menu-text m-2 btn" %>
 
-      <% end %>
-
-
-　　　</div>
-　　</div>
-
-
+          <% end %>
+  　　  　</div>
+  　　</div>
     </header>
 
-    <!--<p class="notice"><%#= notice %></p>-->
-    <!--<p class="alert"><%#= alert %></p>-->
+    <!--slickのための記述-->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <%= yield %>
+
+    <!--トップへ戻るボタン-->
+　　<div id="pagetop"><a href="#"></a></div>
 
     <!--フッター-->
 
@@ -72,9 +69,9 @@
               </div>
             </div>
           </div>
-          <div>
+        <div>
             <div class="text-mated text-center copy_right">©small_overseas</div>
-          </div>
+        </div>
       </div>
     </footer>
 

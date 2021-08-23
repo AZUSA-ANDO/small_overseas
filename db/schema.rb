@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2021_08_19_111644) do
     t.string "name", null: false
     t.string "address", null: false
     t.text "introduction", null: false
-    t.integer "japan_area", default: 0, null: false
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false

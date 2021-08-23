@@ -1,5 +1,0 @@
-
-
- $(".follow-btn_<%= @user.id %>").html("<%= j(render 'public/relationships/follow-btn', user: @user) %>"); 
- $(".follow_<%= @user.id %>").html('<%= link_to @user.follower.count, user_follows_path(@user) %>');
- $(".follower_<%= @user.id %>").html('<%= link_to @user.followed.count, user_followers_path(@user) %>');
