@@ -7,6 +7,7 @@
           <h2>User List</h2>
         </div>
       </div>
+
       <div class="row">
         <div class="col-10 mx-auto">
           <table class="table table-bordered">
@@ -65,8 +66,8 @@
           </table>
         </div>
       </div>
+      <%= paginate @users %>
     </div>
   </div>
 </div>
 
-<%= paginate @users %>

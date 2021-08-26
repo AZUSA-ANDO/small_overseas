@@ -1,78 +1,25 @@
 <div class="container">
-<h4 class="text-center">Chat Room</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-     <%= attachment_image_tag(e.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>
-      </a>
-  </strong>
-  </div>
-<% end %>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-        <div class="chat-box">
-           <%= attachment_image_tag(m.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
-           <strong><%= m.body %></strong> <br>
-            <%= m.created_at.to_s(:datetime) %>
-　　　　　　<%# if m.user == current_user %>
-             <%#= link_to '×', message_path, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger' %>
-             <%# end %>
+ <h4 class="text-center">DM<i class="far fa-envelope-open"></i></h4>
+  <p class="mt-1 text-center">You can send messages to each other!<small class="text-muted">（お互いにメッセージを送りあうことができます）</small></p>
+    <% @entries.each do |entry| %>
+      <div class="d-inline-flex mr-4 mt-5">
+        <strong>
+           <%= attachment_image_tag(entry.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'60x60') %>
+            <a class="user_name" href="/users/<%= entry.user.id %>">
+              <%= entry.user.name %>
+            </a>
+        </strong>
+      </div>
+     <% end %>
+      <div class="posts text-right">
+       <%= render "message_form", message: @message, room: @room %>
+      </div>
+      <hr>
+      <div class="chats">
+        <div class="chat-<%= @room.id %>">
+          <%= render "message", messages: @messages %>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :body, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "送信",class: 'form-submit'%>
-    <% end %>
-  </div>
+      </div>
+          <%= paginate @messages %>
 </div>
-
-</div>
-
-
-
-
-
-
-
-
-<!--<div class="page-header border rounded">-->
-<!--  <table class="table table-hover">-->
-<!--    <thead>-->
-<!--      <tr class="table-primary text-center chat-title">-->
-<!--        <th colspan="4">メッセージ</th>-->
-
-<!--      </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--      <%# @room.messages.each do |message| %>-->
-<!--      <tr>-->
-<!--        <td>-->
-<!--        <%#= attachment_image_tag message.user, :profile_image, size:"20x20", fallback:"no_image.jpg",class:"rounded-circle" %>-->
-<!--        <%#= link_to user_path(message.user), class:"link-text", "data-turbolinks": false do %>-->
-
-<!--          <%#= message.user.name %>-->
-<!--        <%# end %>-->
-<!--        </td>-->
-<!--        <td><%#= message.body %></td>-->
-<!--        <td><%#= message.created_at.strftime('%Y/%m/%d %H:%M') %></td>-->
-<!--        <td>-->
-<!--          <%# if message.user == current_user %>-->
-<!--          <%#= link_to '×', messages_path, method: :delete, remote: true, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger' %>-->
-<!--          <%# end %>-->
-<!--        </td>-->
-<!--      </tr>-->
-<!--      <%# end %>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-
 

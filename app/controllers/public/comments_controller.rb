@@ -8,9 +8,8 @@ class Public::CommentsController < ApplicationController
 		@comment = Comment.new(comment_params)
 		@comment.spot_id = @spot.id
 		@comment.user_id = current_user.id
+		@spot.create_notification_comment!(current_user, @comment.id)
 		unless @comment.save
-  		 #redirect_to spot_path(@spot.id)
-  		# else
 		  render 'public/spots/show'
 		end
   end
@@ -19,7 +18,6 @@ class Public::CommentsController < ApplicationController
 		@spot = Spot.find(params[:spot_id])
 		@comment = @spot.comments.find(params[:id])
 		@comment.destroy
-		# redirect_to request.referer
 	end
 
 

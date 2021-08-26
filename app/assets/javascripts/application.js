@@ -15,7 +15,6 @@
 //= require bootstrap-sprockets
 
 //= require jquery
-//= require jquery_ujs
 
 //= require rails-ujs
 //= require activestorage
@@ -34,21 +33,32 @@ $(function() {
 
 
 
+$(function(){
+  var pagetop = $('#page_top');
+  // ボタン非表示
+  pagetop.hide();
+  // 100px スクロールしたらボタン表示
+  $(window).scroll(function () {
+     if ($(this).scrollTop() > 100) {
+          pagetop.fadeIn();
+     } else {
+          pagetop.fadeOut();
+     }
+  });
+  pagetop.click(function () {
+     $('body, html').animate({ scrollTop: 0 }, 500);
+     return false;
+  });
+});
 
-// $(document).on('ready', function() {
-//   $(".full").slick({
-//     arrows: false,
-//     dots: true,
-//     autoplay: true,
-//     autoplaySpeed: 1500,
-//     speed: 1500,
-//     fade: true,
-//     pauseOnFocus: false,
-//     pauseOnHover: false,
-//     pauseOnDotsHover: false,
-//   });
-// });
-
+// ハンバーガーメニュー
+$(function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+});
 
 
 

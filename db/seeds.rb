@@ -10,6 +10,6 @@
 # Adminアカウント作成
 
 Admin.create!(
-  email: "test@test",
-  password: "test@test"
+  email: "admin@1231admin",
+  password: "admin@1231admin"
   )

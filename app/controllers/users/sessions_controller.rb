@@ -2,9 +2,9 @@
 
 class Users::SessionsController < Devise::SessionsController
 
-# 以下。コメントオフ
-  # before_action :reject_user, only: [:create]
-# ここまで
+
+  before_action :reject_user, only: [:create]
+
 
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -23,23 +23,25 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-# 以下、undefined method `[]' for nil:NilClassとエラーが出る
-  # protected
-  # # ・if (@user.valid_password?(params[:customer][:password])で、入力されたパスワードが正しいことを確認
-  # # ・(@iser.active_for_authentication? == false))で、@userのactive_for_authentication?メソッドがfalseであるかどうかを確認
-  # # ・上記の2点が当てはまれば、ログインページにリダイレクトし、エラーメッセージを表示
 
-  # def reject_user
-  #   @user = User.find_by(email: params[:user][:email].downcase)
-  #   if @user
-  #     if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
-  #       flash[:error] = "退会済みです。"
-  #       redirect_to new_user_session_path
-  #     end
-  #   else
-  #     flash[:error] = "必須項目を入力してください。"
-  #   end
-  # end
+  protected
+  # ・if (@user.valid_password?(params[:user][:password])で、入力されたパスワードが正しいことを確認
+  # ・(@user.active_for_authentication? == false))で、@userのactive_for_authentication?メソッドがfalseであるかどうかを確認
+  # ・上記の2点が当てはまれば、ログインページにリダイレクトし、エラーメッセージを表示
+
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+        flash[:error] = "I have withdrawn.(退会済みです)"
+        redirect_to new_user_session_path
+      end
+    else
+      flash[:error] = "Please fill in the required fields.(必須項目を入力してください)"
+    end
+  end
+
+
 
 # ここまで
 

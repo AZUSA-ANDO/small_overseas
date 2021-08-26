@@ -1,57 +1,52 @@
 
-
+<div class="row">
  <ul>
        <% spots.each do |spot| %>
        <li>
-         <div class="photo">
-           <%= link_to spot_path(spot.id) do %>
-           <%#= attachment_image_tag spot, :spot_image, format: 'jpeg', class: "contain" %>
+         <div class="photo col-sm-6">
+          <%= link_to spot_path(spot.id) do %>
+            <% spot.spot_images.first(1).each do |image| %>
+              <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain image" %>
+            <% end %>
 
-          <%# spot.spot_images.each do |image| %>
-
-          <% spot.spot_images.first(1).each do |image| %>
-          <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain image" %>
-          <% end %>
-
-
-          <% if user_signed_in? %>
-           <div class="favorite-btn_<%= spot.id %>">
-           <%= render "public/favorites/favorite-btn", spot: spot %>
-           </div>
-          <% end %>
+            <% if user_signed_in? %>
+             <div class="favorite-btn_<%= spot.id %>">
+               <%= render "public/favorites/favorite-btn", spot: spot %>
+             </div>
+            <% end %>
          </div>
-       <% end %>
+          <% end %>
 
-        <table class="table txt">
-          <tr>
-            <td>User name<small class="text-muted">：ユーザー名</small></td>
-　　　　　　<td><%= link_to spot.user.name, user_path(spot.user.id) %></td>
-          </tr>
-　　　　　<tr>
-　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
-　　　　　　<td><%= spot.japan_area %></td>
-          </tr>
-          <tr>
-            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
-            <td><%= spot.overseas_area.name %></td>
-          </tr>
-          <tr>
-            <td>Address<small class="text-muted">：住所</small></td>
-            <td><%= spot.address %></td>
-          </tr>
-           <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small></td>
-            <td><%= spot.name %></td>
-          </tr>
-          <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
-            <td><%= spot.introduction %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
-          </tr>
-        </table>
-       </li>
-       <% end %>
-     </ul>
+
+  <div class="col-sm-6">
+          <table class="table txt">
+            <tr>
+              <td>User name</br><small class="text-muted">ユーザー名</small></td>
+  　　　　    　　<td><%= link_to spot.user.name, user_path(spot.user.id) ,class: "user_name" %></td>
+            </tr>
+            <tr>
+              <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
+              <td><%= spot.overseas_area.name %></td>
+            </tr>
+            <tr>
+              <td>Address</br><small class="text-muted">住所</small></td>
+              <td><%= spot.address %></td>
+            </tr>
+             <tr>
+              <td>Spot name</br><small class="text-muted">スポット名</small></td>
+              <td><%= spot.name %></td>
+            </tr>
+            <tr>
+              <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
+              <td><%= spot.introduction %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><small class="text-muted"><%= spot.created_at.to_s(:datetime) %></small></td>
+            </tr>
+          </table>
+  </div>
+         </li>
+         <% end %>
+</ul>
+</div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'notifications/index'
+  end
 # deviseのルーティング
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -61,6 +64,10 @@ Rails.application.routes.draw do
     get "all_search", to: "spots#search", as: "all_search"
 # 週間ランキング
     get "rank_search", to: "spots#rank", as: "rank_search"
+
+# 通知機能
+    resources :notifications, only: [:index]
+
 
 
   end

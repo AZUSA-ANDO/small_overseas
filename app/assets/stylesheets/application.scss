@@ -34,13 +34,12 @@ html, body {
 }
 
 
-// TOP画面のslick
+
 
 // TOP画面の画像
 .img01{
-  height: 87vh;
+  height: 85vh;
   width: 100%;
-  // background-image: url(../../images/set1.png);
   background-image: image-url('top2.jpg');
   background-size:cover;
   opacity: 0.85;
@@ -48,6 +47,7 @@ html, body {
 
 // ロゴ
 .logo img{
+  margin: 0;
   width: 50%;
   height: auto;
 }
@@ -56,15 +56,14 @@ html, body {
 .logo_link:hover {
   text-decoration: none;
 }
-
+// アバウトページで使用
 .img02{
-  height: 80vh;
+  height: 83vh;
   width: 100%;
   background-image: image-url('about.jpg');
   background-size:cover;
   opacity: 0.85;
 }
-
 
 .uline {
 	padding-bottom: 9px;
@@ -75,3 +74,256 @@ html, body {
 .about{
   font-size: 90%;
 }
+
+// いいねボタンの色を変更
+.like-btn {
+ color: #757575;
+ text-decoration: none;
+ }
+
+.unlike-btn {
+ color: #bb5a5a;
+ }
+
+// いいねボタンをマウスオーバーした時、下線をなくす
+ .photo .like-btn:hover,
+ .photo .unlike-btn:hover,
+ .photo:hover{
+  text-decoration: none;
+}
+
+
+.search_bar{
+  font-size: 90%;
+}
+
+
+.weekly_ranking {
+    background-color:#f0ece2;
+    color:#596e79;
+}
+
+// リンクの色を変える
+.user_name,
+.follow,
+.follower,
+.overseas_area_search,
+.follow_btn,
+.fa-envelope,
+.link_color{
+    color:#596e79;
+}
+
+.user_name:hover,
+.follow:hover,
+.follower:hover,
+.overseas_area_search:hover,
+.follow_btn:hover,
+.fa-envelope:hover,
+.link_color:hover{
+    color:#c7b198;
+    text-decoration: none;
+}
+
+// 通知機能
+.fa-times-circle {
+    color:#c7b198;
+}
+
+// アップデートボタン
+.btn-update{
+   background-color:#f0ece2;
+   color:#596e79;
+}
+
+// ページネーション
+.pagination {
+  justify-content: center;
+}
+
+.pagination > li > a {
+  border: none;
+  color: #999;
+}
+.pagination > li > a:hover {
+  color: #596e79;
+  background-color: white;
+}
+.pagination > .active > .page-link {
+  color: #596e79;
+  background-color: #f0ece2;
+}
+
+
+.pagination > .active > a:hover {
+  background-color: #f0ece2;
+  color: #596e79;
+}
+
+
+.number {
+    color:#535a3b;
+    font-size: 115%;
+    font-weight:500;
+}
+
+
+// 以下、フッターデザイン
+
+.myfooter{
+  border-top: 1px solid #dfd3c3;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.copy_right{
+  color: #596e79;
+}
+
+.contact{
+  color: #212121;
+}
+
+#info_mail{
+  color: #757575;
+  text-decoration: none;
+}
+
+#map{
+  height: 150px;
+  width:270px;
+}
+
+// トップへ戻るボタン
+
+#pagetop{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  background: #dfd3c3;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#pagetop a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  text-align: center;
+}
+#pagetop a::before{
+  font-family: "Font Awesome 5 Free";
+  content: '\f106';
+  font-weight: 900;
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+
+
+
+/* ---------------------------- */
+/* ---- ハンバーガーアイコン ---- */
+/* ---------------------------- */
+#hm-icon {
+  // position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 43px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 90%;
+  height: 4px;
+  background-color: #c7b198;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-child(1) {
+  top: 0;
+}
+.menu-trigger span:nth-child(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-child(3) {
+  bottom: 0;
+}
+.menu-trigger.active{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+}
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #c7b198;
+}
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #c7b198;
+}
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #f0ece2;
+  color: #212121;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+
+#sp-menu a {
+  color: #596e79;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 70px;
+  font-size: 120%;
+}
+
+
+// ヘッダーデザイン
+#sp-menu .nav-menu-text:hover{
+    color:#c7b198;
+}
+
+#sp-menu .nav-menu-text{
+    padding-bottom: 30px;
+    font-weight:500;
+}
+
+.user_bar {
+  background-color:#F6F0E8;
+  height: 500px;
+}
+

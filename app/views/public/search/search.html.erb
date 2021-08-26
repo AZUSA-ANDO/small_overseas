@@ -1,55 +1,54 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-2">
+
+    <div class="col-xl-3">
       <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
     </div>
-    <div class="col-10">
 
-     <% if @datas.empty? %>
-      <h4>Not posted yet...</h4>
-     <% end %>
-
+    <div class="col-xl-9">
+      <h3 class="text-center mb-5"><%= @overseas_area.name %></h3>
+       <% if @datas.empty? %>
+        <h5 class="text-center">まだ投稿されていません</h5>
+       <% end %>
 
      <ul>
        <% @datas.each do |data| %>
        <li>
          <div class="photo">
+           <!--投稿写真は最初の１枚目のみ表示-->
            <%= link_to spot_path(data.id) do %>
-           <% data.spot_images.first(1).each do |image| %>
-           <%= attachment_image_tag image, :image, format: 'jpeg',width: '100%', height: 'auto' %>
+             <% data.spot_images.first(1).each do |image| %>
+             <%= attachment_image_tag image, :image, format: 'jpeg',width: '100%', height: 'auto' %>
            <% end %>
-             <% if user_signed_in? %>
-               <div class="favorite-btn_<%= data.id %>">
-                <%= render "public/favorites/favorite-btn", spot: data %>
-               </div>
-             <% end %>
+           <!--いいねボタンはログインしている人しか見えないように-->
+           <% if user_signed_in? %>
+             <div class="favorite-btn_<%= data.id %>">
+              <%= render "public/favorites/favorite-btn", spot: data %>
+             </div>
+           <% end %>
          </div>
        <% end %>
 
         <table class="table txt">
           <tr>
-            <td>User name<small class="text-muted">：ユーザー名</small></td>
-　　　　　　<td><%= link_to data.user.name, user_path(data.user.id) %></td>
-          </tr>
-　　　　　<tr>
-　　　　　　<td>Area<small class="text-muted">：エリア</small></td>
-　　　　　　<td><%= data.japan_area %></td>
+            <td>User name</br><small class="text-muted">ユーザー名</small></td>
+　　　　　　<td><%= link_to data.user.name, user_path(data.user.id) ,class: "user_name" %></td>
           </tr>
           <tr>
-            <td>Atmosphere<small class="text-muted">：雰囲気</small></td>
+            <td>Atmosphere</br><small class="text-muted">雰囲気</small></td>
             <td><%= data.overseas_area.name %></td>
           </tr>
           <tr>
-            <td>Address<small class="text-muted">：住所</small></td>
+            <td>Address</br><small class="text-muted">住所</small></td>
             <td><%= data.address %></td>
           </tr>
            <tr>
-            <td>Spot name<small class="text-muted">：スポット名</small></td>
+            <td>Spot name</br><small class="text-muted">スポット名</small></td>
             <td><%= data.name %></td>
           </tr>
           <tr>
-            <td>Spot introduction<small class="text-muted">：紹介文</small></td>
+            <td>Introduction</br><small class="text-muted">スポット紹介</small></td>
             <td><%= data.introduction %></td>
           </tr>
         </table>
@@ -57,8 +56,8 @@
        <% end %>
      </ul>
 
+     <%= paginate @datas %>
+
     </div>
-
-
   </div>
 </div>
