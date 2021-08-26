@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>SmallOverseas</title>
     <%= csrf_meta_tags %>
@@ -21,32 +23,52 @@
 
   <body>
     <!--ここからヘッダー-->
-    <header>
-     <div class="navbar">
-       <div class="navbar navbar-brand mt-3">
-          <%= link_to root_path, class: "logo_link" do %>
-            <div class="logo">
-              <%= image_tag asset_path("/assets/logo.jpg", alt: "ロゴ") %>
-            </div>
-　　　　 <% end %>
-　　　 </div>
-        <div class="navbar ml-auto">
-          <% if user_signed_in? %>
-                <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
-                <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
-                <%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2 btn" %>
-                <%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2 btn" %>
-
-
-          <% else %>
-
-                <%= link_to "ABOUT", about_path, class:"nav-menu-text m-2 btn" %>
-                <%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2 btn" %>
-                <%= link_to "LOGIN", log_in_path, class:"nav-menu-text m-2 btn" %>
-
-          <% end %>
-  　　  　</div>
+    <header class="header">
+  　<div class="navbar">
+  　  <!--ロゴの表示-->
+     <div class="navbar navbar-brand mt-3">
+        <%= link_to root_path, class: "logo_link" do %>
+          <div class="logo">
+            <%= image_tag asset_path("/assets/logo.jpg", alt: "ロゴ") %>
+          </div>
+  　　　　 <% end %>
   　　</div>
+  　　<!--ハンバーガーメニュー-->
+    　<div class="navbar ml-auto">
+      　<div id="sp-menu" class="text-center">
+          <h2 class="mt-5 mb-5">MENU</h2>
+            <% if user_signed_in? %>
+              <p><%= link_to "ABOUT", about_path, class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2" %></p>
+            <% else %>
+              <p><%= link_to "ABOUT", about_path, class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "LOGIN", log_in_path, class:"nav-menu-text m-2" %></p>
+            <% end %>
+        </div>
+
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+
+    </div>
+
+
     </header>
 
     <!--slickのための記述-->

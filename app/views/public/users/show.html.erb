@@ -1,7 +1,19 @@
 
 <div class='container px-sm-0'>
+  <h3 class="text-center"><%= @user.name %>'s Page</h3>
+    <div class="text-center">Click the photo to go to the details page.
+      <small class="text-muted">/ 写真をクリックすると詳細ページへ</small></br>
+        You can post a new post by pressing the + button.
+      <small class="text-muted">/ ＋ボタンを押すと新規投稿ができます</small>
+      <p class="text-right mb-5">
+      <%= link_to new_spot_path do %>
+        <i class="far fa-plus-square fa-3x text-right" style="color: lightslategray;"></i>
+      <% end %>
+      </p>
+    </div>
+
   <div class='row'>
-    <div class='col-md-3 pt-3 user_bar mt-5'>
+    <div class='col-xl-3 pt-3 user_bar'>
      <p style="color:#ff6d24;"><%= flash[:notice] %></p>
       <table class='table'>
         <tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
@@ -72,25 +84,12 @@
     <% end %>
   </div>
 
-
-
-     <div class='col-md-9'>
-      <h3 class="text-left ml-5"><%= @user.name %>'s Page</h3>
-        <div class="text-left ml-5">Click the photo to go to the details page.
-          <small class="text-muted">/ 写真をクリックすると詳細ページへ</small></br>
-          You can post a new post by pressing the + button.
-          <small class="text-muted">/ ＋ボタンを押すと新規投稿ができます</small>
-          <p class="text-right mb-5">
-            <%= link_to new_spot_path do %>
-            <i class="far fa-plus-square fa-3x text-right" style="color: lightslategray;"></i>
-            <% end %>
-          </p>
-        </div>
+     <div class='col-xl-9 mt-2'>
       <div class="row">
       <ul>
        <% @spots.each do |spot| %>
        <li>
-         <div class="photo">
+         <div class="photo mr-2">
 
           <%= link_to spot_path(spot.id) do %>
             <% spot.spot_images.first(1).each do |image| %>

@@ -25,8 +25,9 @@ class Public::MessagesController < ApplicationController
             redirect_to "/rooms/#{@message.room_id}"
           end
         else
-          redirect_back(fallback_location: root_path)
+          render "/rooms/#{@message.room_id}"
         end
+
     end
 
     private

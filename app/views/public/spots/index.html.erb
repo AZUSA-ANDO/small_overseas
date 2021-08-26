@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-xl-3">
     <!--スポット名または住所で検索できるフォーム-->
     <p class="search_bar">Spot name or Address</br>
     <small class="text-muted mt-0 pt-0">スポット名/住所で検索</small></p>
@@ -14,7 +14,7 @@
       <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
      </div>
 
-    <div class = "col-9 mt-5">
+    <div class = "col-xl-9 mt-5">
       <% if user_signed_in? %>
         <div class="text-right">
           <%= link_to "Weekly ranking",rank_search_path, class: "weekly_ranking btn mb-2" %>

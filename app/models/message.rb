@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
 
   # メッセージが空白の時保存しない
-  validates :body, presence: true, length: { maximum: 300 }
+  validates :body, presence: true, length: { maximum: 200 }
   belongs_to :user
   belongs_to :room
 
