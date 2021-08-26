@@ -2,11 +2,11 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-3">
+    <div class="col-xl-3">
       <%= render "public/spots/area_search", overseas_areas: @overseas_areas %>
     </div>
 
-    <div class="col-9">
+    <div class="col-xl-9">
       <h3 class="text-center mb-5"><%= @overseas_area.name %></h3>
        <% if @datas.empty? %>
         <h5 class="text-center">まだ投稿されていません</h5>
