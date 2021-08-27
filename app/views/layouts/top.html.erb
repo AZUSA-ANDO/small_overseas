@@ -27,15 +27,33 @@
     <!--ここからヘッダー-->
     <header>
      <div class="navbar">
-       <div class="navbar navbar-brand mt-3">
+       <div class="navbar navbar-brand mt-2">
           <%= link_to root_path, class: "logo_link" do %>
-            <div class="logo"><img src="/assets/logo.jpg" alt="">
+            <div class="logo"><%= image_tag asset_path("logo.jpg", alt: "ロゴ") %>
             </div>
 　　　　 <% end %>
 　　　 </div>
 　　</div>
     </header>
     <%= yield %>
+
+     <!--フッター-->
+
+    <footer class="p-5 mt-5">
+        <div class="myfooter">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 text-mated">
+                <p class="contact">Contact</br><small class="text-muted">(お問い合わせ)</small></p>
+                <p class="mail">Mail<i class="fas fa-envelope-square ml-1"></i>：<u><a href="mailto:info@small_overseas.com" id="info_mail">info@small_overseas.com</a></u></p>
+              </div>
+            </div>
+          </div>
+        <div>
+            <div class="text-mated text-center copy_right">©small_overseas</div>
+        </div>
+      </div>
+    </footer>
 
 
   </body>
