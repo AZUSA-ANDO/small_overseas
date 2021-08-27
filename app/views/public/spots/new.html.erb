@@ -19,7 +19,7 @@
           <%= f.label "Address" , class:"form-label lead" %>
           <%= f.label "：住所", class:"form-label small" %></br>
           <small class="text-muted">※都道府県から入力してください</small>
-          <%= f.text_field :address, size:"40", class:'py-2 px-2' %>
+          <%= f.text_field :address, size:"35", class:'py-2 px-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :address %>
         </div>
       </div>
