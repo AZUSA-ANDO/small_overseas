@@ -19,7 +19,7 @@
           <%= f.label "Address" , class:"form-label lead" %>
           <%= f.label "：住所", class:"form-label small" %></br>
           <small class="text-muted">※都道府県から入力してください</small>
-          <%= f.text_field :address, size:"60", class:'py-2 px-2' %>
+          <%= f.text_field :address, size:"40", class:'py-2 px-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :address %>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="form-group ml-md-2">
           <%= f.label "Spot name" , class:"form-label lead" %>
           <%= f.label "：スポット名", class:"form-label small" %>
-          <%= f.text_field :name, size: "45", class:'py-2 px-2' %>
+          <%= f.text_field :name, size: "35", class:'py-2 px-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :name %>
         </div>
      </div>
@@ -54,7 +54,7 @@
         <div class="form-group ml-md-2">
           <%= f.label "Spot introduction" , class:"form-label lead" %>
           <%= f.label "：スポット紹介", class:"form-label small" %>
-          <%= f.text_area :introduction, size:"45 x 4", class:'p-2' %>
+          <%= f.text_area :introduction, size:"35 x 4", class:'p-2' %>
           <%= render 'layouts/error_messages', obj: @spot, column: :introduction %>
         </div>
       </div>
