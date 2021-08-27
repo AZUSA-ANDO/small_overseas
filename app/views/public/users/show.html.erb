@@ -1,6 +1,13 @@
 
 <div class='container px-sm-0'>
-  <h3 class="text-center"><%= @user.name %>'s Page</h3>
+  <h3 class="text-center">
+    <% if @user.is_deleted==true %>
+      <%= @user.name %>'s Page</br>
+      （こちらのユーザーは退会しました）
+    <% else %>
+      <%= @user.name %>'s Page
+    <% end %>
+  </h3>
     <div class="text-center">Click the photo to go to the details page.
       <small class="text-muted">/ 写真をクリックすると詳細ページへ</small></br>
         You can post a new post by pressing the + button.
@@ -42,7 +49,7 @@
           </th>
           <th>
             <!--自分以外の人の表示-->
-              <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
+              <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) && @user.is_deleted==false  %>
               <% if @isRoom == true %>
                 <p class="user-show-room"><a href="/rooms/<%= @roomId %>"><i class="fas fa-envelope fa-lg"></i></a>
               <% else %>
@@ -60,7 +67,7 @@
       </table>
 
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @user.is_deleted==false %>
     <!--ユーザー編集アイコン-->
       <div class='mt-3 text-center icon'>
         <!--自分にしか見えない表示-->
