@@ -41,8 +41,9 @@
           </div>
        </div>
 
-        <div class='col-xl-5 pt-3 ml-3'>
+        <div class='col-xl-5 ml-3'>
           <table class='table' >
+           <p style="color:#ff6d24;"><%= flash[:notice] %></p>
            <tr>
           	  <td>User name</br><small class="text-muted">ユーザー名</small></td>
           	  <td><%= link_to @spot.user.name, user_path(@spot.user.id) ,class: "user_name" %>
