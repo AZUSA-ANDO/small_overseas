@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
     @user=User.find(params[:id])
     @spots = @user.spots.page(params[:page]).per(10).order('updated_at DESC')
 
-    if user_signed_in?
+    if user_signed_in? && @user.is_deleted==false
     # roomがcreateされた時に、現在ログインしているユーザーと、「Start DM」を押されたユーザーの両方をEntriesテーブルに記録する必要があるので、
     # whereメソッドでそのユーザーを探している
     @currentUserEntry=Entry.where(user_id: current_user.id)
