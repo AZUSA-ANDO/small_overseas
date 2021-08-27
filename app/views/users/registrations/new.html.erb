@@ -14,12 +14,12 @@
        <div class="field">
         <%= f.label :UserName %><small class="text-muted">：ユーザー名</small><br />
         <small>(2文字以上)</small><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "40" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30" %>
       </div>
 
       <div class="field mt-4">
         <%= f.label :email %><small class="text-muted">：メールアドレス</small><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "30" %>
       </div>
 
       <div class="field mt-4">
@@ -27,12 +27,12 @@
         <% if @minimum_password_length %><br />
         <small>(<%= @minimum_password_length %> 文字以上)</small>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", size: "40" %>
+        <%= f.password_field :password, autocomplete: "new-password", size: "30" %>
       </div>
 
       <div class="field mt-4">
         <%= f.label :password_confirmation %><small class="text-muted">：パスワード確認</small><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "40" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "30" %>
       </div>
 
       <div class="actions">

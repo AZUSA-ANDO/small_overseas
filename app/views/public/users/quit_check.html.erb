@@ -17,7 +17,7 @@
     <div class="row mt-4">
       <div class="mx-auto">
         <%= link_to "いいえ", "/users/#{current_user.id}", class:'btn btn-sm btn-secondary' %>
-        <%= link_to "はい", quit_users_path, method: :PATCH, data: {confirm: "本当に退会しますか？"}, class:'btn btn-sm btn-info ml-4' %>
+        <%= link_to "はい", quit_users_path, method: :PATCH, data: {confirm: "本当に退会しますか？"}, class:'btn btn-sm btn-outline-secondary ml-4' %>
       </div>
     </div>
   </div>

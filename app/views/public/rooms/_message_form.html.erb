@@ -1,5 +1,5 @@
 <%= form_with(model: message, local: true) do |f| %>
-  <%= f.text_field :body, placeholder: "メッセージを入力して下さい(200文字以内)" , size: 50, class:"form-text-field mr-3" %>
+  <%= f.text_field :body, placeholder: "message:メッセージ(200文字以内)" , size: "31 x 2", class:"form-text-field mr-3" %>
   <%= f.hidden_field :room_id, value: room.id %>
     <%= f.button :type => "submit", style: 'border-style: none;' do %>
       <i class="far fa-paper-plane"></i>
