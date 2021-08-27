@@ -18,8 +18,8 @@
         <div class="col-md-6 col-lg-5 offset-lg-1">
           <div class="form-group ml-md-2">
             <%= f.label "User Name" , class:"form-label lead" %>
-            <%= f.label ":ユーザー名", class:"form-label small" %>
-            <%= f.text_field :name, size: "40" %>
+            <%= f.label ":ユーザー名", class:"form-label small" %></br>
+            <%= f.text_field :name, size: "30" %>
             <%= render 'layouts/error_messages', obj: @user, column: :name %>
           </div>
         </div>
@@ -31,8 +31,8 @@
         <div class="col-md-6 col-lg-5 offset-lg-1 mt-2">
           <div class="from-group ml-md-2">
             <%= f.label "Introduction" ,class:"form-label lead" %>
-            <%= f.label ":自己紹介", class:"form-label small" %>
-            <%= f.text_area :introduction, size: "40x3" %>
+            <%= f.label ":自己紹介", class:"form-label small" %></br>
+            <%= f.text_area :introduction, size: "30x3" %></br>
             <%= render 'layouts/error_messages', obj: @user, column: :introduction %>
           </div>
         </div>
@@ -42,8 +42,8 @@
        <div class="col-md-6 col-lg-5 offset-lg-1 mt-4">
           <div class="form-group ml-md-2">
             <%= f.label "Email" , class:"form-label lead" %>
-            <%= f.label ":メールアドレス", class:"form-label small" %>
-            <%= f.text_field :email, size: "40" %>
+            <%= f.label ":メールアドレス", class:"form-label small" %></br>
+            <%= f.text_field :email, size: "30" %></br>
             <%= render 'layouts/error_messages', obj: @user, column: :email %>
           </div>
        </div>

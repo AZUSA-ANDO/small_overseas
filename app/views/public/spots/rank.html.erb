@@ -21,7 +21,6 @@
       <% j = i %>
       <div class="ml-5 number">
       No.<%= j %>
-      <i class="far fa-heart ml-5"></i><%= ranking.favorites.count %>
       </div>
       <% last_like = ranking.favorites.count %>
     <% else %>
@@ -29,13 +28,12 @@
       <% last_like = ranking.favorites.count %>
       <div class="ml-5 number">
       No.<%= j %>
-      <i class="far fa-heart ml-5"></i><%= ranking.favorites.count %>
       </div>
     <% end %>
 
     <ul>
      <li>
-       <div class="photo ml-5 number">
+       <div class="photo number">
          <%= link_to spot_path(ranking.id) do %>
             <% ranking.spot_images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain" %>
@@ -47,7 +45,7 @@
          <% end %>
        </div>
 
-        <table class="table txt">
+        <table class="table txt mr-1">
           <tr>
             <td>User name</br><small class="text-muted">ユーザー名</small></td>
             <td><%= link_to ranking.user.name, user_path(ranking.user.id) , class:"user_name" %></td>
