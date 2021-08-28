@@ -39,6 +39,7 @@ Rails.application.routes.draw do
    scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'home' => 'spots#home'
 
   resources :spots do
     resource :favorites, only: [:create, :destroy]
