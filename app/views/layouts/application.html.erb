@@ -41,6 +41,7 @@
             <% if user_signed_in? %>
               <p><%= link_to "ABOUT", about_path, class:"nav-menu-text m-2" %></p>
               <p><%= link_to "ALL SPOT", spots_path, class:"nav-menu-text m-2" %></p>
+              <p><%= link_to "HOME", home_path, class:"nav-menu-text m-2" %></p>
               <p><%= link_to "MYPAGE", "/users/#{current_user.id}", class:"nav-menu-text m-2" %></p>
               <p><%= link_to "LOGOUT", sign_out_path, method: :delete, class:"nav-menu-text m-2" %></p>
             <% else %>

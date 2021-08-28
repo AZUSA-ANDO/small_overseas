@@ -64,6 +64,11 @@ class Public::SpotsController < ApplicationController
     @search_spots = Spot.search(params[:key])
   end
 
+# フォローしている人・自分の投稿一覧
+  def home
+    @spots = Spot.where(user_id: [current_user.id,*current_user.following_user]).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
 
 
 
