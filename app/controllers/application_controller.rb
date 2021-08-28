@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_users_path
     when User
-      user_path(resource)
+      # user_path(resource)
+      home_path
     end
   end
 

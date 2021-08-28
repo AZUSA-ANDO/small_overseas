@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class = "col-xl-12 mt-5">
+      <h4 class="text-center">Home</h4>
+      <p style="color:#ff6d24;"><%= flash[:notice] %></p>
+        <p class="text-right mb-5">
+        <%= link_to new_spot_path do %>
+          <i class="far fa-plus-square fa-3x text-right" style="color: lightslategray;"></i>
+        <% end %>
+        </p>
+        <% if @spots.present? %>
+          <%= render "public/spots/post_list", spots: @spots %>
+        <% else %>
+          <p class="text-center">・まだ何も投稿されていません</br>・フォローしているユーザーはいません</p>
+        <% end %>
+        <div class="text-center">
+          <%= paginate @spots %>
+        </div>
+    </div>
+  </div>
+</div>

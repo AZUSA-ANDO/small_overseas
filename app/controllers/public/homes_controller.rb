@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
 
 
-# トップ画面はヘッダー・フッターをなくすためレイアウトを指定
+# トップ画面はヘッダーをなくすためレイアウトを指定
     def top
     render layout: 'top'
     end
