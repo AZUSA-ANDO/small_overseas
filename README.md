@@ -28,9 +28,8 @@
 - お気に入りのスポットを誰かに紹介したい時
 
 ## 設計書
-- [ワイヤーフレーム](https://docs.google.com/presentation/d/1qtmZF0kdqhPmAEnpgKZK4hAtLFBjns_logktVUUWO5Y/edit#slide=id.ge749490879_0_104)<br>
 - [ER図](https://drive.google.com/file/d/180kbEA1mR9VH0JbmQMRHkmFdxvN7qcf6/view?usp=sharing)　<br>
-- [テーブル定義書](https://docs.google.com/spreadsheets/d/15bYpdVpU44oBtOx7yFbTLQhOEd7ZxLZvHBDHf3avXtk/edit#gid=2122389497)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/15bYpdVpU44oBtOx7yFbTLQhOEd7ZxLZvHBDHf3avXtk/edit#gid=2122389497) <br>
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1uqgzk5OGe5oMNmsTZbHrRsGPfY9GoOqb/edit#gid=1927280278)
 
 ## チャレンジ要素一覧
@@ -45,7 +44,11 @@
 |JSライブラリ|jQuery|
 |IDE|Cloud9|
 
-
+## ◆使用素材
+### 画像素材
+- [unsplash](https://unsplash.com/)　<br>
+###### 【イラスト】後日記入
+###### 【アイコン・ロゴ】後日記入
 
 ###### ◆工夫・意識したポイント
 ###### 後日記入
@@ -60,7 +63,4 @@
 ###### ◆今後追加したい機能等
 ###### 後日記入
 
-###### ◆使用素材
-###### 【画像素材】後日記入
-###### 【イラスト】後日記入
-###### 【アイコン・ロゴ】後日記入
+
