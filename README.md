@@ -46,7 +46,7 @@
 
 ## ◆使用素材
 ### 画像素材
-- [画像素材](https://unsplash.com/)　<br>
+- [unsplash](https://unsplash.com/)　<br>
 ###### 【イラスト】後日記入
 ###### 【アイコン・ロゴ】後日記入
 
