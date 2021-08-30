@@ -49,14 +49,14 @@ class Public::SpotsController < ApplicationController
    redirect_to user_path(@spot.user_id)
  end
 
-# 週間ランキング
+# 月間ランキング
 # Spotモデルから()内のデータを探す
 # Favorite.group(:post_id)→Favotiteモデルのspot_idが同じものをまとめる
-# where(created_at: Time.current.all_week)→投稿が作られた日が今週のデータのみ抽出
+# where(created_at: Time.current.all_week)→投稿が作られた日が今月のデータのみ抽出
 # order('count(spot_id) desc')→まとめたものをspot_idの多い順に並び替える
 # pluck(:spot_id)→そのままだとFavoriteモデルで取り出してしまうので、post_idで値を取りだす
   def rank
-    @week_post_like_ranks = Spot.find(Favorite.group(:spot_id).where(created_at: Time.current.all_week).order('count(spot_id) desc').limit(10).pluck(:spot_id))
+    @month_post_like_ranks = Spot.find(Favorite.group(:spot_id).where(created_at: Time.current.all_month).order('count(spot_id) desc').limit(10).pluck(:spot_id))
   end
 
 # お店の名前or住所で検索
