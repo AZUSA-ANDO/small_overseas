@@ -17,7 +17,7 @@
     <div class = "col-xl-9 mt-5">
       <% if user_signed_in? %>
         <div class="text-right">
-          <%= link_to "Weekly ranking",rank_search_path, class: "weekly_ranking btn mb-2" %>
+          <%= link_to "Monthly ranking",rank_search_path, class: "weekly_ranking btn mb-2" %>
         </div>
       <% end %>
         <%= render "public/spots/post_list", spots: @spots %>
