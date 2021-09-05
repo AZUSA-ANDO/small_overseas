@@ -15,7 +15,6 @@ ul {
 ul li {
     display: flex;
     align-items: center;
-
 }
 
 
@@ -36,7 +35,6 @@ ul li .photo:hover {
 
 ul li .txt {
     width: 100%;
-    // box-sizing: border-box;
 }
 
 //   写真を左右交互に
@@ -102,7 +100,6 @@ ul li .datetime {
     ul li .txt {
         width: 100%;
     }
-
 
 }
 
