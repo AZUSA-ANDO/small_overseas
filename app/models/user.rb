@@ -48,6 +48,15 @@ class User < ApplicationRecord
     super && (self.is_deleted == false)
    end
 
+   # ゲストログイン機能
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guest"
+      user.introduction = "こちらはゲストアカウントです。ユーザーの機能を利用することができます。"
+      user.id = 99
+    end
+  end
 
 
    # フォロー通知
