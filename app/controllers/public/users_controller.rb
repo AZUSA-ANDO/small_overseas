@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :ensure_normal_user, only: %i[update quit]
+  before_action :ensure_normal_user, only: %i[update]
 
   def show
     @user=User.find(params[:id])
