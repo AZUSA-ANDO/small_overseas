@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :ensure_normal_user, only: %i[update]
+  before_action :ensure_normal_user, only: %i[update quit]
 
   def show
     @user=User.find(params[:id])
@@ -50,6 +50,10 @@ class Public::UsersController < ApplicationController
     user.update(is_deleted: true)
     reset_session
     redirect_to root_path
+  end
+
+  def quit_check
+    @user = current_user
   end
 
   private
