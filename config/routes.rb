@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'users/registrations#new'
     post 'sign_up', to: 'users/registrations#create'
     delete 'sign_out', to: 'users/sessions#destroy'
+    # ゲストログイン機能
+    post 'guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
 

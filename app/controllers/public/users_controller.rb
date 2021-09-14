@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_normal_user, only: %i[update]
 
   def show
     @user=User.find(params[:id])
@@ -51,6 +52,10 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def quit_check
+    @user = current_user
+  end
+
   private
 
   def user_params
@@ -63,4 +68,11 @@ class Public::UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
+  def ensure_normal_user
+    if @user.email == 'guest@example.com'
+      redirect_to edit_user_path(@user.id), alert: 'ゲストユーザーの更新はできません。'
+    end
+  end
+
 end
