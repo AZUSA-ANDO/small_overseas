@@ -20,6 +20,7 @@
     <% if ranking.favorites.count != last_like %>
       <% j = i %>
       <div class="ml-5 number">
+      
       No.<%= j %>
       </div>
       <% last_like = ranking.favorites.count %>
@@ -38,9 +39,9 @@
             <% ranking.spot_images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, format: 'jpeg', class:"contain" %>
           <% end %>
-         <div class="favorite-btn_<%= ranking.id %>">
-           <%= render "public/favorites/favorite-btn", spot: ranking %>
-         </div>
+         <!--<div class="favorite-btn_<%#= ranking.id %>">-->
+         <!--  <%#= render "public/favorites/favorite-btn", spot: ranking %>-->
+         <!--</div>-->
 
          <% end %>
        </div>
