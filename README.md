@@ -1,4 +1,5 @@
 # small_overseas
+![smalloverseas](https://user-images.githubusercontent.com/83532756/135597796-cb0f82c7-dc66-42cf-8fa9-81e025e9fe57.jpg)
 
 ## サイト概要
 国内で海外旅行の気分を味わえるようなスポットをユーザーが紹介するサービスです。<br>
@@ -46,20 +47,7 @@
 
 ## ◆使用素材
 ### 画像素材
-- [unsplash](https://unsplash.com/)　<br>
-###### 【イラスト】後日記入
-###### 【アイコン・ロゴ】後日記入
-
-###### ◆工夫・意識したポイント
-###### 後日記入
-
-
-###### ◆その他導入技術等
-###### 後日記入
-
-###### ◆使用ライブラリ
-###### 後日記入
-
+- [unsplash](https://unsplash.com/)
 
 
 
