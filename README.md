@@ -1,5 +1,6 @@
 # small_overseas
 ![smalloverseas](https://user-images.githubusercontent.com/83532756/135597796-cb0f82c7-dc66-42cf-8fa9-81e025e9fe57.jpg)
+URL: https://smalloverseas.com
 
 ## サイト概要
 国内で海外旅行の気分を味わえるようなスポットをユーザーが紹介するサービスです。<br>
