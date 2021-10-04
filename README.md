@@ -2,6 +2,19 @@
 ![smalloverseas](https://user-images.githubusercontent.com/83532756/135597796-cb0f82c7-dc66-42cf-8fa9-81e025e9fe57.jpg)
 URL: https://smalloverseas.com
 
+
+```
+【会員ユーザーアカウント】
+   メールアドレス： aaa@aaa
+   パスワード： aaaaaa
+
+【管理者アカウント】
+   メールアドレス： admin@1231admin
+   パスワード： admin@1231admin
+
+ ※別途「ゲストログイン機能」（ワンクリックでログインが可能な機能）も実装していますので、ぜひそちらもご利用ください。
+```
+
 ## サイト概要
 国内で海外旅行の気分を味わえるようなスポットをユーザーが紹介するサービスです。<br>
 会員であれば、スポットを紹介できるようになります。<br>
