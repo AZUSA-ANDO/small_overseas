@@ -50,16 +50,16 @@
           <th>
             <!--自分以外の人の表示-->
               <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) && @user.is_deleted==false  %>
-              <% if @isRoom == true %>
-                <p class="user-show-room"><a href="/rooms/<%= @roomId %>"><i class="fas fa-envelope fa-lg"></i></a>
-              <% else %>
-                <%= form_for @room do |f| %>
-                  <%= fields_for @entry do |e| %>
-                    <%= e.hidden_field :user_id, value: @user.id %>
-                  <% end %>
+                <% if @isRoom == true %>
+                  <p class="user-show-room"><a href="/rooms/<%= @roomId %>"><i class="fas fa-envelope fa-lg"></i></a>
+                <% else %>
+                  <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e| %>
+                      <%= e.hidden_field :user_id, value: @user.id %>
+                    <% end %>
                   <%= f.submit "Send DM", class:"btn btn-secondary user-show-chat"%>
+                  <% end %>
                 <% end %>
-              <% end %>
               <% end %>
             </th>
         </tr>
